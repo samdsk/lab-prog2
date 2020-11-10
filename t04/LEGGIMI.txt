@@ -1,0 +1,47 @@
+# Guida per gli impazienti
+
+Questo file contiene una breve guida per lo svolgimento dell'esercitazione;
+qualora questa guida non fosse sufficientemente chiara, la invito a prendere
+visione delle *istruzioni più dettagliate*, collegandosi, da un'altra finestra
+del suo browser, all'indirizzo
+
+    http://reaper.srv.di.unimi.it/
+
+Come vede, l'ambiente d'esecuzione è costituito da una versione di Visual Studio
+Code eseguita all'interno del browser. Queste brevi indicazioni dovrebbero
+consentirle di mettersi subito all'opera:
+
+0) Invochi (dal terminale) il comando `identifica`. Il sistema emetterà il suo
+   numero di matricola seguito dal suo cognome e nome; per favore verifichi che
+   quanto riportato corrisponda ai suoi dati.
+
+1) Apra nell'Explorer la directory del primo esercizio, ad esempio `01-primo`.
+
+2) Legga la traccia dell'esercizio `Testo.html`. Per farlo, selezioni il file
+   nell'Explorer, prema il tasto destro del mouse e scelga la voce `Open
+   Preview` dal menù contestuale.
+
+3) Implementi la sua soluzione in uno o più file (che deve salvare nella
+   directory dell'esercizio, con nome qualunque purché con estensione `.java`).
+   Il sorgente della classe `TestRunner` eventualmente fornito dal docente *non
+   va modificato*.
+
+4) Esegua (da terminale, dopo essersi portato nella directory dell'esercizio)
+   il comando:
+
+        verifica
+
+   che compila tutti i sorgenti e verifica il comportamento della soluzione; se
+   l'esecuzione del comando riporta errori (di compilazione, o esecuzione), è
+   vivamente consigliato che li corregga prima di procedere.
+
+5) Una volta che la verifica ha successo, consegni il suo materiale eseguendo
+   (da terminale, in una qualsiasi cartella dell'esercitazione corrente) il
+   comando
+
+        consegna
+
+   che consegna tutti i file sorgente (di qualunque esercizio affrontato sino a
+   quel momento nell'esercitazione corrente). Si raccomanda di consegnare ogni
+   soluzione appena ottenuta per evitare potenziali perdite di dati; ai fini
+   della valutazione sarà considerata solo l'ultima consegna in ordine di tempo.
