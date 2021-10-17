@@ -1,6 +1,0 @@
-+ abcdefgjkhilmnopqrstuvwxyz 64
-+ HELLO 4
-+ a 42
-- b
-- HELLO
-- pippo
