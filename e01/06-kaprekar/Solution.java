@@ -21,10 +21,12 @@ public class Solution {
         int b = Integer.parseInt(sort(s, (x,y) -> (x>y)));        
         return Integer.toString(b-a);
     }
+
     public static String sort(String s,  Compare c){
-        
         int len = s.length();
+
         if(len<2) return s;
+
         String l = "";
         String r = "";        
         char pivot = s.charAt(0);
