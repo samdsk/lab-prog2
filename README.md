@@ -1,2 +1,2 @@
 # lab-prog2
-Lab di Programmazione II
+Laboratorio di Programmazione II  @ Unimi informatica
