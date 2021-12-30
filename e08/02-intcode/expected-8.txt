@@ -1,0 +1,4 @@
+0
+IntcodeVM : 
+	Memory : [3,9,8,9,10,9,4,9,99,0,42]
+	Registers : [IP = 9, RBP = 0]

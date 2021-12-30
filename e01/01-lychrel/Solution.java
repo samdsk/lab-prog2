@@ -3,8 +3,16 @@
 
 class Solution{
     public static void main(String[] args) {   
-        long l = Long.parseLong(args[0]);
-        String s = args[0]; 
+        lychrel(args[0]);
+    }
+    
+    /**
+     * Requires: Any positive number as a string 
+     * Modifies: Modifies system.out
+     * Effects: Print the Lychrel sequence of given number
+     */
+    public static void lychrel(String s){
+        long l = Long.parseLong(s);
         long n = 0L;
 
         while(true){
@@ -12,23 +20,14 @@ class Solution{
             System.out.printf("%d\n", l);
             if (n==l) break;
             l += n;
-            s = Long.toString(l);            
+            s = Long.toString(l); 
         }
-
     }
-
-    public static long swap(long l){        
-        int i = Long.toString(l).length();
-        long r = 0L;       
-        
-        while(l!=0){
-            r += l%10* (long) Math.pow(10, --i);
-            l = l/10;                    
-        }
-
-        return r;
-    }
-
+    /**
+     * Requires: Any string != null
+     * Modifies: _
+     * Effects: Returns a reverse order string of input
+     */
     public static String swap(String s){        
         int l = s.length();        
         if (l<=1) return s;    
