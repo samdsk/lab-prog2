@@ -1,0 +1,4 @@
+0
+IntcodeVM : 
+	Memory : [3,3,1105,0,9,1101,0,0,12,4,12,99,0]
+	Registers : [IP = 12, RBP = 0]
