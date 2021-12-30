@@ -1,5 +1,5 @@
-git config --global user.name "Mona Lisa"
-git config --global user.email "email@example.com"
+    git config --global user.name "Mona Lisa"
+    git config --global user.email "email@example.com"
 
 See What Branch You're On
 
@@ -70,33 +70,33 @@ Delete Branches
 Cannot delete branch 'Test_Branch' checked out at '[directory location]'.
 Switch to some other branch and delete Test_Branch, as follows:
 
-$ git checkout master
-$ git branch -d Test_Branch
+    $ git checkout master
+    $ git branch -d Test_Branch
 
 If above command gives you error - The branch 'Test_Branch' is not fully merged. If you are sure you want to delete it and still you want to delete it, then you can force delete it using -D instead of -d, as:
 
-$ git branch -D Test_Branch
+    $ git branch -D Test_Branch
 
 To delete Test_Branch from remote as well, execute:
 
-git push origin --delete Test_Branch
+    git push origin --delete Test_Branch
 
 
 
 Replace everything with the remote branch; but, only from the same commit your local branch is on:
 
-git reset --hard origin/some-branch
+    git reset --hard origin/some-branch
 
 OR, get the latest from the remote branch and replace everything:
 
-git fetch origin some-branch
-git reset --hard FETCH_HEAD
+    git fetch origin some-branch
+    git reset --hard FETCH_HEAD
 
 As an aside, if needed, you can wipe out untracked files & directories that you haven't committed yet:
 
-git clean -fd
+    git clean -fd
 
 
-git branch -D <branch-name>
-git fetch <remote> <branch-name>
-git checkout -b <branch-name> --track <remote>/<branch-name>
+    git branch -D <branch-name>
+    git fetch <remote> <branch-name>
+    git checkout -b <branch-name> --track <remote>/<branch-name>
