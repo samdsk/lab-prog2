@@ -28,8 +28,8 @@ public class Solution {
 
     /**
      * Requires: Two positive integers R and Width
-     * Effects: Prints columns of given row number R of width Width
-     * Modifies: _
+     * Effects: Prints columns of chessboard for given row number R of width Width
+     * Modifies: System.out
      */
     public static void column(int r, int width){
         for(int c=0;c<width;c++){

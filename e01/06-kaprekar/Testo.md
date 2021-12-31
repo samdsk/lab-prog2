@@ -4,7 +4,7 @@ La costante di Kaprekar
 Descrizione
 -----------
 
-Dattaraya Ramachandra Kaprekar è un matematico indiano vissuto nel secolo scorso
+Dattatreya Ramachandra Kaprekar è un matematico indiano vissuto nel secolo scorso
 che si occupava di teoria dei numeri. Una delle sue scoperte più bizzarre
 riguarda una costante, che porta il suo nome.
 

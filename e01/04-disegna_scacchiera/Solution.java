@@ -5,16 +5,31 @@ public class Solution {
         print(n);
     }
 
+    /**
+     * Requires: N a positive integer 
+     * Modifies: System.out
+     * Effects: Builds the chessboard with a square size of N
+     */
     public static void print(int n){        
         row(0,n);
     }
 
+    /**
+     * Requires: row number R>=0 and square size of N
+     * Modifies: System.out
+     * Effects: Builds the row number R of chessboard, containing squares of size N
+     */
     public static void row(int r, int n){
         if(r==8) return;
         columns(r,n);
         row(r+1,n);
     }
 
+    /**
+     * Requires: row number R>=0 and square size of N
+     * Modifies: System.out
+     * Effects: Prints columns of row R with square size N. 
+     */
     public static void columns(int r, int n){
         String dash = "-";
         String hash = "#";

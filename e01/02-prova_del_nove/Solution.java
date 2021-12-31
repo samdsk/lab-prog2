@@ -1,5 +1,13 @@
 //prova del nove
 public class Solution {
+
+    /**
+     * Requires: a positive number N as a string
+     * Effects: Prints triad of possible combinations which confirms "la prova del nove", 
+     *          where A,B,C are positive, less than N and A*B != C.
+     * Modifies: System.out
+     */
+
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
         
@@ -14,7 +22,7 @@ public class Solution {
         
     }
     /** Requires: An array of 3 positive integers  
-     *  Effects: Returns true if it satifies prova del nove otherwise false
+     *  Effects: Returns true if it satisfies prova del nove otherwise false
      * 
      */
     public static boolean provaDelNove(int[] n){
