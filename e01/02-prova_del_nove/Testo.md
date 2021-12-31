@@ -23,7 +23,7 @@ operandi:
 
 quindi:
 
-* fareste il prodotto 6 x 8 = 48, ottenendo 4 + 8 = 12, da cui 1 +  = 3,
+* fareste il prodotto 6 x 8 = 48, ottenendo 4 + 8 = 12, da cui 1 + 2 = 3,
 
 infine, calcolereste:
 

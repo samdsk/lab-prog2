@@ -8,8 +8,8 @@ class Solution{
     
     /**
      * Requires: Any positive number as a string 
-     * Modifies: Modifies system.out
-     * Effects: Print the Lychrel sequence of given number
+     * Modifies: Modifies System.out
+     * Effects: Prints the Lychrel sequence of given number
      */
     public static void lychrel(String s){
         long l = Long.parseLong(s);
