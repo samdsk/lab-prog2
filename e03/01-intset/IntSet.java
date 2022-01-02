@@ -2,11 +2,15 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class IntSet{
-    //Overview: IntSet is a set of integers which doesn't contian any duplicates
+    //Overview: IntSet is a mutable set of integers which doesn't contian any duplicates
+
+    //attributes
     private ArrayList<Integer> set;
     private int size;
 
     //constructors
+
+    /** Initialize an empty set */
     public IntSet(){
         this.set = new ArrayList<Integer>();
         this.size = 0;
@@ -15,8 +19,9 @@ public class IntSet{
 
     /**
      * Requires: _
-     * Modifies: Inserts a element to this.set and increases this.size by 1
-     * Effects: _
+     * Modifies: this.size and this.set
+     * Effects: If the element X is not contained in this.set it will be added to this.set 
+     *          and increased this.size by 1, otherwise nothing is changed.
      */
     public void insert(int x){
         if(this.contains(x)) return;
@@ -26,8 +31,9 @@ public class IntSet{
 
     /**
      * Requires: _
-     * Modifies: Removes X from this.set and decreases this.size by 1 only if this.contains(X) == true.
-     * Effects: If this.set contains X then it will be removed from this.set and decreased this.size by 1.
+     * Modifies: this.set and this.size
+     * Effects: If this.set contains X then it will be removed from this.set and decreased this.size by 1,
+     *          otherwise nothing is changed.
      *          Throws an EmptyException if this.set is empty.
      */
     public void remove(int x){        
@@ -51,8 +57,8 @@ public class IntSet{
     /**
      * Requires: _
      * Modifies: _
-     * Effects: if set.isEmpty == true throws an EmptyException.
-     *          Returns a random value of this.set.
+     * Effects: Returns a random value of this.set.
+     *          if set.isEmpty == true throws an EmptyException.       
      */
     public int choose(){
         if(this.set.isEmpty()) throw new EmptyException("The set is empty.");
@@ -62,7 +68,7 @@ public class IntSet{
     /**
      * Requires: _
      * Modifies: _
-     * Effects: Returns this.size 
+     * Effects: Returns this.size the size of the set
      */
     public int getSize(){
         return this.size;
@@ -78,7 +84,7 @@ public class IntSet{
         return false;
     }
 
-    /** AF */
+    /** AF {N1,N2,...,Ni} size:S */
     @Override
     public String toString(){
         String output = "{";
