@@ -1,13 +1,25 @@
 public class Poly {
+    //Overview Poly class is immutable, creates dense polynomial with integer ceffiecients.
+    //es. c_0 + c_1 * x + ... + c_n x^n
 
+    //an array of integer coefficients of length degree+1
     private final int[] terms;
+    //the degree of the polynomial
     private final int deg;
-    
+
+    //constructors
+
+    /**
+     * Initialize a empty polynomial
+     */
     public Poly(){
         this.terms = new int[1];
         this.deg = 0;
     }
 
+    /**
+     * Initialize a polynomial of degree N with coefficient C, es. cx^n
+     */
     public Poly(int c,int n) throws NegativeExponentException{        
         if(n<0) throw new NegativeExponentException("Exponent must be positive.");
 
@@ -18,21 +30,44 @@ public class Poly {
         this.terms[deg] = c;
     }
 
+    /**
+     * Initialize a polynomial of degree N with all coefficients = 0.
+     */
     private Poly(int n){
         this.terms = new int[n+1];
         this.deg = n;
     }
 
+    //methods
+
+    /**
+     * Requires: _
+     * Modifies: _
+     * Effeects: Returns the degree of the poly
+     */
     public int degree(){
         return this.deg;
     }
-
+    /**
+     * Requires: _
+     * Modifies: _
+     * Effects: Returns the coefficient of the given term D.
+     *          Throws IllegalArgumentException if exponent is negative.
+     */
     public int coeff(int d){
-        if(this.terms.length<d) throw new IndexOutOfBoundsException("Ceofficient doesn't exists.");
+        if(d<0) throw new IllegalArgumentException("Exponent must be positive");
+        if(d>this.deg) return 0;
         return this.terms[d];
     }
 
+    /**
+     * Requires: _
+     * Modifies: _
+     * Effects: Returns a new polynomial produced by performing polynomial addition between This and Q.
+     *          Throws NullPointerException if q == null.
+     */
     public Poly add(Poly q){
+        if(q == null) throw new NullPointerException("Polynomial provided is null.");
         Poly large = this;
         Poly small = this;
 
@@ -59,15 +94,32 @@ public class Poly {
         return output;
 
     }
-
-    public Poly sub(Poly q){
-        Poly newpoly = new Poly(q.deg);
-        for(int i = 0; i<=q.deg;i++){
-            newpoly.terms[i] = -(q.terms[i]);
+    /**
+     * Requires: _
+     * Modifies: _
+     * Effects: Returns a new polynomial produced by performing polynomial subtraction between This and Q.
+     */
+    public Poly sub(Poly q){        
+        return add(q.minus());
+    }
+    /**
+     * Requires: _
+     * Modifies: _
+     * Effects: Returns a identical polynomial with all terms negated.
+     */
+    public Poly minus(){
+        Poly output= new Poly(this.deg);
+        for(int i = 0; i<=this.deg;i++){
+            output.terms[i] = -(this.terms[i]);
         }
-        return add(newpoly);
+        return output;
     }
 
+    /**
+     * Requires: _
+     * Modifies: _
+     * Effects: Returns a new polynomial produced by performing polynomial multiplication between This and Q.
+     */
     public Poly mul(Poly q){
         if(this.deg == 0 && this.terms[0] == 0 || q.deg == 0 && q.terms[0] == 0){ 
             return new Poly();
@@ -88,9 +140,8 @@ public class Poly {
     @Override
     public String toString(){
         String output = "";
-        for (int i : terms) {
-            if(i==0) continue;
-            else output += i+"x^"+this.deg;
+        for (int i = this.deg;i>0;i--) {
+            output += this.terms[i]+"x^"+i;
         }
         return output;
     }
