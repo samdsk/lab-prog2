@@ -1,17 +1,34 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class PolySparse {
     //OVerview PolySparse is immutable class rapresents Sparse Polynomial
+    // Es. {Term(4,0),Term(5,2),Term(3,5)} = 4 + 5x^2 + 
+
+    //fields
+    /**
+     * List of terms of poly
+     */
     private final ArrayList<Term> terms;
+    /**
+     * Polynomial's degree
+     */
     private int deg;
 
+    //Constructors
+    /**
+     * Initialize this as a Zero polynomial
+     */
     public PolySparse(){
         this.terms = new ArrayList<>();
         this.deg = 0;
     }
 
+    /**
+     * Initialize this as a Polynomial of given Term T
+     */
     public PolySparse(Term t){
         this.terms = new ArrayList<Term>();
         if(t.coef()==0) this.deg = 0;
@@ -21,11 +38,23 @@ public class PolySparse {
         }
     }
 
+    //Methods
+
+    /**
+     * Requires: _
+     * Modifies: _ 
+     * Effects: Returns degree Deg of this
+     */
     public int degree(){
         return this.deg;
     }
-
-    public int ceoff(int d) throws Exception{
+    /**
+     * Requires: _
+     * Modifies: _
+     * Effects: Returns coeffient of given degree D,
+     *          Throws NegativeExponentException if D<0.
+     */
+    public int ceoff(int d) throws NegativeExponentException{
         if(d<0) throw new NegativeExponentException("Exponent must be positive.");
         Iterator<Term> it = terms.iterator();
         
@@ -34,9 +63,11 @@ public class PolySparse {
             if(t.degree() == d) return t.coef(); 
         }        
         
-        throw new Exception("Term not found.");        
+        return 0;        
     }
-
+    /**
+     * Implements comparator for class Term 
+     */
     private class TermCompare implements Comparator<Term>{
         public int compare(Term p, Term q){
             Integer p_deg = p.degree();
@@ -55,7 +86,15 @@ public class PolySparse {
      * Alla fine della lista aggiungo First che è l'ultimo elemento della lista Small
      */
 
-    public PolySparse add(PolySparse q){
+    /**
+     * Requires: _
+     * Modifies: _
+     * Effects: Perferms addition between This and Q and returns a new sparse polynomial,
+     *          Throws NullPointerException if q == null
+     *          Throws NegativeExponentException if degree of a term is negative.
+     */
+    public PolySparse add(PolySparse q) throws NullPointerException, NegativeExponentException {
+        if(q == null) throw new NullPointerException("Polynomial provided is null.");
         PolySparse small = this;
         PolySparse large = this;
         if(large.deg < q.deg) large = q;
@@ -76,33 +115,46 @@ public class PolySparse {
             if(it.hasNext()){
                 Term second = it.next();
                 if(first.degree() == second.degree()){
-                    if(first.coef()+second.coef() != 0){                        
+                    if(first.coef()+second.coef() != 0){ 
+                        output.terms.add(new Term(first.coef()+second.coef(),first.degree())); 
                         try{
-                            output.terms.add(new Term(first.coef()+second.coef(),first.degree()));                            
-                        }catch(NegativeExponentException e){
-                            System.out.println("Error: Negative exponent found!");
-                        }
-                        
+                            first = it.next(); 
+                        }catch(NoSuchElementException e){
+                            output.deg = first.degree();
+                            break; 
+                        }                                              
                     }
                 }else{
                     output.terms.add(first);
+                    first = second;
                 }
-                first = second;
+                
             }else{
-                output.deg = first.degree();
-                output.terms.add(first);
+                output.deg = first.degree();    
+                output.terms.add(first);            
                 break;
-            }
-
-            
+            }            
         }
         return output;        
     }
 
-    public PolySparse sub(PolySparse q){
+    /**
+     * Requires: _
+     * Modifies: _
+     * Effects: Perferms subtraction between This and Q and returns a new sparse polynomial,
+     *          Throws NullPointerException if q == null
+     *          Throws NegativeExponentException if degree of a term is negative.
+     */
+
+    public PolySparse sub(PolySparse q)throws NullPointerException, NegativeExponentException {
         return this.add(q.minus());
     }
 
+    /**
+     * Requires: _
+     * Modifies: _
+     * Effects: Perferms negation of This returns a new sparse polynomial
+     */
     public PolySparse minus(){
         PolySparse output = new PolySparse();
         Iterator<Term> it = this.terms.iterator();
