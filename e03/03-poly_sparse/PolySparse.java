@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 public class PolySparse {
@@ -28,8 +29,11 @@ public class PolySparse {
 
     /**
      * Initialize this as a Polynomial of given Term T
+     * @throws NegativeExponentException
      */
-    public PolySparse(Term t){
+    public PolySparse(Term t) throws NegativeExponentException{
+                
+        if(t.degree()<0) throw new NegativeExponentException("Exponent must be positive.");
         this.terms = new ArrayList<Term>();
         if(t.coef()==0) this.deg = 0;
         else{
@@ -93,8 +97,13 @@ public class PolySparse {
      *          Throws NullPointerException if q == null
      *          Throws NegativeExponentException if degree of a term is negative.
      */
-    public PolySparse add(PolySparse q) throws NullPointerException, NegativeExponentException {
-        if(q == null) throw new NullPointerException("Polynomial provided is null.");
+    public PolySparse add(PolySparse q) throws NullPointerException{
+
+        if(q == null) throw new NullPointerException("Provided Polynomial is null.");
+
+        if(q.terms.isEmpty()) return this;
+        if(this.terms.isEmpty()) return q;
+
         PolySparse small = this;
         PolySparse large = this;
         if(large.deg < q.deg) large = q;
@@ -161,13 +170,64 @@ public class PolySparse {
 
         while(it.hasNext()){
             Term t = it.next();
-            try{
                 output.terms.add(new Term( -t.coef(),t.degree()));
-            }catch(NegativeExponentException e){
-                System.out.println("Error: Negative exponent found!");
-            }           
+                    
         }
 
         return output;
     }
+
+    private PolySparse(ArrayList terms, int deg){
+        this.terms = terms;
+        this.deg = deg;
+    }
+
+    /**
+     * Requires: _
+     * Modifies: _
+     * Effects: Perferms multiplication between This and Q returning a new sparse polynomial
+     *          Throws NullPointerException if Q == null
+     */
+
+    public PolySparse mul(PolySparse q) throws NullPointerException{
+        if(q == null) throw new NullPointerException("Provided Polynomial is null.");
+        if(q.deg == 0 && q.terms.isEmpty() || this.deg == 0 && this.terms.isEmpty()) return new PolySparse();
+
+        PolySparse small;
+        PolySparse large;
+
+        if(this.terms.size()< q.terms.size()){
+            small = this;
+            large = q;
+        }else{
+            small = q;
+            large = this;
+        }
+
+        
+        Iterator<Term> it = small.terms.iterator();
+
+        PolySparse output = new PolySparse();
+
+        while(it.hasNext()){
+            
+            Term term = it.next();
+
+            ArrayList<Term> temp_terms = new ArrayList<>();
+            int temp_deg = 0;
+            for (Term t : large.terms) {
+                int this_deg = t.degree()+term.degree();
+                if(temp_deg< this_deg) temp_deg = this_deg;                
+                temp_terms.add(new Term(t.coef()*term.coef(), this_deg));                
+            }
+
+            output = output.add(new PolySparse(temp_terms,temp_deg));
+        }
+        
+        output.deg  = large.deg + small.deg;
+
+        return output;
+        
+    }
+
 }
