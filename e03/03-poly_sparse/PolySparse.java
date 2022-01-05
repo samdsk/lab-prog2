@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
-import java.util.LinkedList;
+
 import java.util.NoSuchElementException;
 
 public class PolySparse {
@@ -176,12 +176,12 @@ public class PolySparse {
 
         return output;
     }
-
+/*
     private PolySparse(ArrayList terms, int deg){
         this.terms = terms;
         this.deg = deg;
     }
-
+*/
     /**
      * Requires: _
      * Modifies: _
@@ -204,30 +204,55 @@ public class PolySparse {
             large = this;
         }
 
+        large.terms.sort(new TermCompare());
         
         Iterator<Term> it = small.terms.iterator();
 
-        PolySparse output = new PolySparse();
+        PolySparse output = new PolySparse();        
 
         while(it.hasNext()){
             
-            Term term = it.next();
-
-            ArrayList<Term> temp_terms = new ArrayList<>();
+            Term term = it.next();            
             int temp_deg = 0;
+
             for (Term t : large.terms) {
                 int this_deg = t.degree()+term.degree();
-                if(temp_deg< this_deg) temp_deg = this_deg;                
-                temp_terms.add(new Term(t.coef()*term.coef(), this_deg));                
-            }
-
-            output = output.add(new PolySparse(temp_terms,temp_deg));
+                if(temp_deg< this_deg) temp_deg = this_deg; 
+                int index = find_index(this_deg);  
+                
+                if(index<0){
+                    if(this_deg>output.deg){ 
+                        output.terms.add(new Term(t.coef()*term.coef(), this_deg));
+                        output.deg = this_deg;
+                    }else output.terms.add(0,new Term(t.coef()*term.coef(), this_deg));
+                }else{
+                    output.terms.set(index,
+                        new Term(
+                            output.terms.get(index).coef()+(t.coef()*term.coef()), 
+                            this_deg
+                    ));
+                }              
+                                
+            }            
         }
         
-        output.deg  = large.deg + small.deg;
+        
 
         return output;
         
+    }
+
+    private int find_index(int deg){        
+        int min = 0, max = terms.size()-1;
+
+        while(min<=max){
+            int middle = max+min>>>1;
+            if(terms.get(middle).degree()==deg) return middle;
+            if(terms.get(middle).degree()<deg) max = middle;
+            else min = middle;
+        }
+
+        return -1;
     }
 
 }
