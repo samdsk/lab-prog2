@@ -1,5 +1,11 @@
-public class NegativeExponentException extends Exception {
-    public NegativeExponentException(){};
+
+
+
+@SuppressWarnings("serial")
+public class NegativeExponentException extends IllegalArgumentException {
+    public NegativeExponentException(){
+        super();
+    };
     public NegativeExponentException(String s){
         super(s);
     }

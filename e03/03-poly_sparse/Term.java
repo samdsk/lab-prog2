@@ -9,8 +9,7 @@ public class Term{
 
     public Term(int coef, int deg){
         this.coef = coef;
-        this.deg = deg;
-        
+        this.deg = deg;        
     }
 
     public void setCoef(int c){

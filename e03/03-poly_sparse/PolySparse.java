@@ -28,9 +28,9 @@ public class PolySparse {
 
     /**
      * Initialize this as a Polynomial of given Term T
-     * @throws NegativeExponentException
+     * Throw NegativeExponentException if degree of the term is negative.
      */
-    public PolySparse(Term t) throws NegativeExponentException{
+    public PolySparse(Term t) {
                 
         if(t.degree()<0) throw new NegativeExponentException("Exponent must be positive.");
         this.terms = new ArrayList<Term>();
@@ -96,7 +96,7 @@ public class PolySparse {
      *          Throws NullPointerException if q == null
      *          Throws NegativeExponentException if degree of a term is negative.
      */
-    public PolySparse add(PolySparse q) throws NullPointerException{
+    public PolySparse add(PolySparse q) {
 
         if(q == null) throw new NullPointerException("Provided Polynomial is null.");
 
@@ -154,7 +154,7 @@ public class PolySparse {
      *          Throws NegativeExponentException if degree of a term is negative.
      */
 
-    public PolySparse sub(PolySparse q)throws NullPointerException, NegativeExponentException {
+    public PolySparse sub(PolySparse q)throws NullPointerException{
         return this.add(q.minus());
     }
 
@@ -219,12 +219,10 @@ public class PolySparse {
                 if(temp_deg< this_deg) temp_deg = this_deg; 
                 int index = find_index(this_deg);  
                 
-                if(index<0){
-                    if(this_deg>output.deg){ 
-                        output.terms.add(new Term(t.coef()*term.coef(), this_deg));
-                        output.deg = this_deg;
-                    }else output.terms.add(0,new Term(t.coef()*term.coef(), this_deg));
-                }else{
+                if(index<0){                    
+                    output.terms.add(-index,new Term(t.coef()*term.coef(), this_deg));
+                    output.deg = this_deg;                    
+                }else{   
                     output.terms.set(index,
                         new Term(
                             output.terms.get(index).coef()+(t.coef()*term.coef()), 
@@ -248,11 +246,11 @@ public class PolySparse {
         while(min<=max){
             int middle = max+min>>>1;
             if(terms.get(middle).degree()==deg) return middle;
-            if(terms.get(middle).degree()<deg) max = middle;
-            else min = middle;
+            if(terms.get(middle).degree()<deg) max = middle - 1;
+            else min = middle + 1;
         }
 
-        return -1;
+        return -min-1;
     }
 
 }
