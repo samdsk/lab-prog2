@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
-
 import java.util.NoSuchElementException;
 
 public class PolySparse {
@@ -176,12 +175,12 @@ public class PolySparse {
 
         return output;
     }
-/*
+    /*
     private PolySparse(ArrayList terms, int deg){
         this.terms = terms;
         this.deg = deg;
     }
-*/
+    */
     /**
      * Requires: _
      * Modifies: _
@@ -234,14 +233,15 @@ public class PolySparse {
                 }              
                                 
             }            
-        }
-        
-        
-
-        return output;
-        
+        }  
+        return output;        
     }
 
+    /**
+     * Requires: A positive exponent
+     * Modifies: _
+     * Effects: Returns position of the given exponent inside this.terms list, returns -1 if not found.
+     */
     private int find_index(int deg){        
         int min = 0, max = terms.size()-1;
 
