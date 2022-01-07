@@ -5,12 +5,15 @@ public class IntSet{
     //Overview: IntSet is a mutable set of integers which doesn't contian any duplicates
 
     //attributes
+
+    /**List of positive integers, which doesn't contain duplicates */
     private ArrayList<Integer> set;
+    /**Rappresents the cardinality of the set */
     private int size;
 
     //constructors
 
-    /** Initialize an empty set */
+    /** Initialize this as an empty set */
     public IntSet(){
         this.set = new ArrayList<Integer>();
         this.size = 0;
@@ -19,7 +22,7 @@ public class IntSet{
 
     /**
      * Requires: _
-     * Modifies: this.size and this.set
+     * Modifies: this
      * Effects: If the element X is not contained in this.set it will be added to this.set 
      *          and increased this.size by 1, otherwise nothing is changed.
      */
@@ -31,7 +34,7 @@ public class IntSet{
 
     /**
      * Requires: _
-     * Modifies: this.set and this.size
+     * Modifies: this
      * Effects: If this.set contains X then it will be removed from this.set and decreased this.size by 1,
      *          otherwise nothing is changed.
      *          Throws an EmptyException if this.set is empty.
@@ -84,16 +87,51 @@ public class IntSet{
         return false;
     }
 
-    /** AF {N1,N2,...,Ni} size:S */
+    /**
+     * AF(c) = {c.set.get(i) | 0 <= i < size}
+     * 
+     * RI = c.set != null 
+     *      && size >= 0
+     *      && all elements are integers
+     *      && doesn't contain any duplicates
+    */
     @Override
     public String toString(){
-        String output = "{";
+        String output = "IntSet = {";
         for (Integer n : this.set) {
             output += n + ",";
         }
 
-        output += "} size:" + size;
+        output += "}";
         return  output;
+    }
+    /**
+     * Requires: _
+     * Modifies: _
+     * Effects: Returns true if confirms RI otherwise returns false
+     */
+    public boolean repOk(){
+        if(this.set != null && this.size >=0){
+            for(int i=0;i<size;i++){
+                for(int j=0;i<size;j++){
+                    if(i==j) continue;
+                    if(this.set.get(i) == this.set.get(j)) return false;                    
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public boolean equals(IntSet q){
+        if(!(q instanceof IntSet)) return false;
+        if(this.size==q.size){
+            for(int i=0;i<size;i++){
+                if(this.set.get(i) != q.set.get(i)) return false;
+            }
+            return true;
+        }
+        return false;
     }
 
 }

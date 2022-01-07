@@ -1,4 +1,4 @@
-public class Poly {
+public class Poly implements Cloneable {
     //Overview Poly class is immutable, creates dense polynomial with integer ceffiecients.
     //es. c_0 + c_1 * x + ... + c_n x^n
 

@@ -1,3 +1,4 @@
+
 public class Term{
     private int coef;
     private int deg;
