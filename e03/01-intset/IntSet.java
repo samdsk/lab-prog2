@@ -42,7 +42,7 @@ public class IntSet{
     public void remove(int x){        
         if(this.set.isEmpty()) throw new EmptyException("The set is empty.");  
         if(this.contains(x)){
-            size--;    
+            --size;    
             this.set.remove(x);      
         }  
     }
@@ -124,14 +124,18 @@ public class IntSet{
     }
 
     public boolean equals(IntSet q){
-        if(!(q instanceof IntSet)) return false;
-        if(this.size==q.size){
+        if(this.size==q.size && this.set != null){
             for(int i=0;i<size;i++){
                 if(this.set.get(i) != q.set.get(i)) return false;
             }
             return true;
         }
         return false;
+    }
+
+    public boolean equalcxcvcxvs(Object q){
+        if(!(q instanceof IntSet)) return false;
+        return equals((IntSet) q);
     }
 
 }

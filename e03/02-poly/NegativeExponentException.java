@@ -1,4 +1,4 @@
-public class NegativeExponentException extends Exception {
+public class NegativeExponentException extends RuntimeException {
     public NegativeExponentException(){};
     public NegativeExponentException(String s){
         super(s);

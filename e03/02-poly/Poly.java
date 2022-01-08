@@ -2,6 +2,12 @@ public class Poly implements Cloneable {
     //Overview Poly class is immutable, creates dense polynomial with integer ceffiecients.
     //es. c_0 + c_1 * x + ... + c_n x^n
 
+    /**AF(c) = {c.terms[i] | 0<=i<=degree} */
+    /**RI 
+     * t.terms != null && t.deg>=0
+     */
+
+
     //an array of integer coefficients of length degree+1
     private final int[] terms;
     //the degree of the polynomial
@@ -132,8 +138,11 @@ public class Poly implements Cloneable {
                 output.terms[i+j] += this.terms[i] * q.terms[j]; 
             }
         }
-
         return output;
+    }
+    
+    public boolean repOk(){
+        return this.terms != null && this.deg >=0;
     }
 
     /** AF */
@@ -144,5 +153,18 @@ public class Poly implements Cloneable {
             output += this.terms[i]+"x^"+i;
         }
         return output;
+    }
+
+    public boolean equals(Object o){
+        if(!(o instanceof Poly)) return false;
+        return equals((Poly) o);
+    }
+
+    public boolean equals(Poly q){
+        if(q == null || this.deg != q.deg) return false;
+        for(int i = 0; i<=this.deg;i++){
+            if (this.terms[i] != q.terms[i]) return false;
+        }
+        return true;
     }
 }
