@@ -1,7 +1,10 @@
 //Kaprekar
 public class Solution {
     public static void main(String[] args) {
-        kaprekar(args[0]);
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        s.close();  
+        kaprekar(n);
     }
 
     interface Compare{       

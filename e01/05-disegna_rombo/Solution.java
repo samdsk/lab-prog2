@@ -1,7 +1,11 @@
+import java.util.Scanner;
+
 // Disegna - Rombo
 public class Solution {
     public static void main(String[] args){
-        int n = Integer.parseInt(args[0]);   
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        s.close();  
         print(n);
     }
 

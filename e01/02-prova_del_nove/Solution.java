@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 //prova del nove
 public class Solution {
 
@@ -9,7 +11,10 @@ public class Solution {
      */
 
     public static void main(String[] args) {
-        int n = Integer.parseInt(args[0]);
+        Scanner s = new Scanner(System.in);
+
+        int n = s.nextInt();
+        s.close();
         
         for(int i=1;i<n;i++){            
             for(int j=1;j<n;j++){

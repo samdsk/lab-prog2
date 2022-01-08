@@ -1,7 +1,12 @@
+import java.util.Scanner;
+
 //Scaccheria
 public class Solution {
     public static void main(String[] args){
-        int n = Integer.parseInt(args[0]);
+        Scanner s = new Scannner(System.in);        
+        int n = s.nextInt();
+        s.close();
+        
         print(n);
     }
 
