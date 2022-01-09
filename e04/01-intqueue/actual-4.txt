@@ -1,0 +1,42 @@
+Enqueue
+Count:1
+Queue: [1,] elements: 1
+Enqueue
+Count:2
+Queue: [1,2,] elements: 2
+Enqueue
+Count:3
+Queue: [1,2,3,] elements: 3
+Enqueue
+Count:4
+Queue: [1,2,3,4,] elements: 4
+Enqueue
+Count:5
+Queue: [1,2,3,4,5,] elements: 5
+Enqueue
+Count:6
+Queue: [1,2,3,4,5,6,] elements: 6
+Enqueue
+Count:7
+Queue: [1,2,3,4,5,6,7,] elements: 7
+Dequeue
+Dequeue: 1
+Queue: [2,3,4,5,6,7,] elements: 6
+Dequeue
+Dequeue: 2
+Queue: [3,4,5,6,7,] elements: 5
+Dequeue
+Dequeue: 3
+Queue: [4,5,6,7,] elements: 4
+Dequeue
+Dequeue: 4
+Queue: [5,6,7,] elements: 3
+Dequeue
+Dequeue: 5
+Queue: [6,7,] elements: 2
+Dequeue
+Dequeue: 6
+Queue: [7,] elements: 1
+Dequeue
+Dequeue: 7
+Queue: [1,2,3,4,5,6,7,] elements: 0

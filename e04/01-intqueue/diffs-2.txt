@@ -1,0 +1,13 @@
+*** expected-2.txt
+--- actual-2.txt
+***************
+*** 1,2 ****
+! IntQueue : [1]
+! 1
+--- 1,6 ----
+! Enqueue
+! Count:1
+! Queue: [1,] elements: 1
+! Enqueue
+! Error:QueueFullException: Queue is full
+! Queue: [1,] elements: 1

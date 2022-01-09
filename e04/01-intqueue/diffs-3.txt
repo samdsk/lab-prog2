@@ -1,0 +1,47 @@
+*** expected-3.txt
+--- actual-3.txt
+***************
+*** 1,3 ****
+! 1
+! IntQueue : [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+! 10
+--- 1,39 ----
+! Enqueue
+! Count:1
+! Queue: [1,] elements: 1
+! Enqueue
+! Count:2
+! Queue: [1,2,] elements: 2
+! Enqueue
+! Count:3
+! Queue: [1,2,3,] elements: 3
+! Enqueue
+! Count:4
+! Queue: [1,2,3,4,] elements: 4
+! Enqueue
+! Count:5
+! Queue: [1,2,3,4,5,] elements: 5
+! Dequeue
+! Dequeue: 1
+! Queue: [2,3,4,5,] elements: 4
+! Enqueue
+! Count:6
+! Queue: [2,3,4,5,6,] elements: 5
+! Enqueue
+! Count:7
+! Queue: [2,3,4,5,6,7,] elements: 6
+! Enqueue
+! Count:8
+! Queue: [2,3,4,5,6,7,8,] elements: 7
+! Enqueue
+! Count:9
+! Queue: [2,3,4,5,6,7,8,9,] elements: 8
+! Enqueue
+! Count:10
+! Queue: [2,3,4,5,6,7,8,9,10,] elements: 9
+! Enqueue
+! Count:11
+! Queue: [2,3,4,5,6,7,8,9,10,11,] elements: 10
+! Enqueue
+! Error:QueueFullException: Queue is full
+! Queue: [2,3,4,5,6,7,8,9,10,11,] elements: 10
