@@ -25,12 +25,12 @@ public class SIMap {
      *          throws DuplicateKeyException if k is already contained
     */
     public void put(String k, int v){
-        if(map.contains(k)) throw new DuplicateKeyException("String "+k+"is already contained in the map");
+        if(contains(k)) throw new DuplicateKeyException("String "+k+"is already contained in the map");
         map.put(k, v);
         assert repOk();
     }
     /**
-     * Effects: Returns if String key is present in this.map
+     * Effects: Returns true if String key is present in this.map otherwise false
      */
     public boolean contains(String key){
         if(map.containsKey(key)) return true;
@@ -40,26 +40,38 @@ public class SIMap {
     /**
      * Modifies: this.map if map is not empty
      * Effects: Removes String key and corrisponding Integer value
-     *          Throw EmptyMapException if map is empty
+     *          Returns value of removed key
+     *          Throws EmptyMapException if map is empty
+     *          Throws NoSuchElementException if key is not found
      */
-    public void remove(String key){
+    public int remove(String key){
         if(map.isEmpty()) throw new  EmptyMapException("Can't remove "+key+" from an empty map!");
+        int output = get(key);
         map.remove(key);
+        return output;
     }
 
     /**
      * Effects: Returns Integer values corrisponding to the String key
+     *          Throws NoSuchElementException if key is not found
      */
     public int get(String key){
-        if(!map.contains(key)) throw new NoSuchElementException("Can't find "+key);
+        if(!contains(key)) throw new NoSuchElementException("Can't find "+key);
         return map.get(key);
+    }
+
+    /**
+     * Effects: Returns the size of the map
+     */
+    public int size(){
+        return map.size();
     }
 
     /** AF */
     public String toString(){
         String output = "{";
         int count = 0;
-        int size = map.size-1;
+        int size = map.size()-1;
         for (Map.Entry<String,Integer> e : map.entrySet()) {
             output += e.getKey()+"->"+e.getValue();
             if(count<size) output += " , ";            
@@ -68,8 +80,20 @@ public class SIMap {
     }
     /** RI */
     public boolean repOk(){
-        if(map == null || map.size <0 ) return false;
+        if(map == null || map.size() <0 ) return false;
         return true;
     }
 
+    public boolean equals(Object o){
+        if(!(o instanceof SIMap)) return false;
+
+        SIMap q = (SIMap) o;
+        if(size() != q.size()) return false;
+
+        for(String key : map.keySet()){
+            if(!q.contains(key)) return false;
+        }
+
+        return true;
+    }
 }
