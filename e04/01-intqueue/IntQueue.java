@@ -16,7 +16,6 @@ public class IntQueue{
     //queue holds n integers where n is size
     private final int[] queue;
     // head holds the first element of the queue and tail the last element
-    private int head,tail;
     //number of elements in queue
     private int elements;
 
