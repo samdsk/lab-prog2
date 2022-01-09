@@ -3,7 +3,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 public class SIMap {
-    //Overview SIMap is immutable, rappresent a data structer which map String k to Integer v 
+    //Overview SIMap is immutable, represent a data structer which map String k to Integer v 
     /**
      * AF(m) = for each entry in map {k->v,k->v,...,k->v} 
      * 

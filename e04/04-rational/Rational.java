@@ -1,7 +1,7 @@
 import java.util.Objects;
 
 public class Rational {
-    //Overview Rational is immutable, rappresents rational numbers es. n/d
+    //Overview Rational is immutable, represent rational numbers es. n/d
 
     /**
      * AF(r) = r.n/r.d se d != 1
