@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
+        "02-filter_iterator",
         "01-intset_iterator",
-        "02-filter_iterator"
+        "03-range_iterator"
     ]
 }
