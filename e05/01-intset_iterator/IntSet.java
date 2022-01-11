@@ -6,6 +6,14 @@ import java.util.Random;
 
 public class IntSet implements Iterable<Integer>{
     //Overview: IntSet is a mutable set of integers which doesn't contian any duplicates
+    /**
+     * AF(s) = [s.set.get(i) | 0<=i<size]
+     * 
+     * RI(s) = 
+     *      s.set!= null 
+     *      && s.size>=0 
+     *      && s.set.get(i) != s.set.get(j) for every 0<=i<j<size
+     */
 
     //attributes
 
@@ -125,7 +133,9 @@ public class IntSet implements Iterable<Integer>{
         }
         return false;
     }
-
+    /**
+     * Effects: Returns true if this equals to Object 0 otherwise false
+     */
     @Override
     public boolean equals(Object o){
         if(!(o instanceof IntSet) || o == null) return false;
@@ -141,26 +151,39 @@ public class IntSet implements Iterable<Integer>{
         return false;
     }
 
+    /**
+     * Effects: Returns an Iterator for this class which let you consume one element per time
+     */
     @Override
     public Iterator<Integer> iterator() {
-        return new Gen(this);
+        return new Generator(this);
     }
 
-    static class Gen implements Iterator<Integer>{
+    static class Generator implements Iterator<Integer>{
+        //Overview implements an iterator for IntSet objects
+
+        /**
+         * AF(g) = g.s.next() while g.s.hasnext != false
+         * 
+         * RI(g) = g.s != null && 0<=cursor<g.size   
+         */
+        /**Holds an IntSet object */
         private IntSet s;
+        /**Let spans through the IntSet elements */
         private int cursor;
 
-        public Gen(IntSet i){
+        /** Initialize this as s = IntSet i and cursor = 0 */
+        public Generator(IntSet i){
             s = i;
             cursor = 0;
         }
-
+        /**Effects: Returns true if cursor<size else false*/
         @Override
         public boolean hasNext() {
-            if(cursor<s.size) return true;
+            if(cursor != 0 &&cursor<s.size) return true;
             return false;
         }
-
+        /**Effects: Return next integer of the s.set, throws NoSuchElementException if s.set has no elements left */
         @Override
         public Integer next() {
             if(hasNext()) return s.set.get(cursor++);
