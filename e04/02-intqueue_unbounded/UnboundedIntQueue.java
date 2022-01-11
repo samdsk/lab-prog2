@@ -2,7 +2,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class UnboundedIntQueue {
-    //Overview: UnboundIntQueue is an immutable, implements a FIFO data structure as a unbounded integer queue
+    //Overview: UnboundIntQueue is an mutable, implements a FIFO data structure as a unbounded integer queue
 
     /**
      * AF(q,size) = [q.queue.get(i) | 0<=i<size]

@@ -1,5 +1,5 @@
 public class IntQueue{
-    //Overview IntQueue is immutable and implements a FIFO data structure as a Queue for integers
+    //Overview IntQueue is mutable and implements a FIFO data structure as a Queue for integers
 
     /**
      * AF(queue,head,tail) = [queue[head],queue[head+1],...,queue[tail-1]] if head<tail

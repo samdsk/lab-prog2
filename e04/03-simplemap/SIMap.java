@@ -3,12 +3,13 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 public class SIMap {
-    //Overview SIMap is immutable, represent a data structer which map String k to Integer v 
+    //Overview SIMap is mutable, represent a data structer which map String k to Integer v 
     /**
-     * AF(m) = for each entry in map {k->v,k->v,...,k->v} 
+     * AF(m) = for each entry in map {k_1->v_1,k_2->v_2,...,k_n->v_n} 
      * 
      * RI(m) = m.map != null
      *         m.map.size >= 0
+     *         m.map doesn't contain any duplicate
      */
     //fields
     /** String to Integer map */
@@ -17,6 +18,7 @@ public class SIMap {
     /** Initialize this as an empty map */
     public SIMap(){
         map = new HashMap<>();
+        assert repOk();
     }
 
     /** 
@@ -48,6 +50,7 @@ public class SIMap {
         if(map.isEmpty()) throw new  EmptyMapException("Can't remove "+key+" from an empty map!");
         int output = get(key);
         map.remove(key);
+        assert repOk();
         return output;
     }
 
@@ -81,6 +84,16 @@ public class SIMap {
     /** RI */
     public boolean repOk(){
         if(map == null || map.size() <0 ) return false;
+        
+        for(String s : map.keySet()){
+            int dups = 0;
+            for(String t : map.keySet()){
+                if(s==t) dups++;
+            }
+            if(dups>1) return false;
+        }
+
+    
         return true;
     }
 
