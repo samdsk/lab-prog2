@@ -14,7 +14,7 @@ public class FilterIterator<T> implements Iterator<T> {
     // source iterator
     final private Iterator<T> source;
     // predicate to apply
-    final private Predicate<Integer> p;
+    final private Predicate<T> p;
     // next element of source
     T next;
     // indicates if has found a element that satisfies the predicate 
@@ -23,7 +23,7 @@ public class FilterIterator<T> implements Iterator<T> {
     /**
      * Initialize this as this.source = source, p = filter and found = false
      */
-    public FilterIterator(final Iterator<T> source, Predicate<Integer> filter) {
+    public FilterIterator(final Iterator<T> source, Predicate<T> filter) {
         this.source = source;
         p = filter;
         found = false;        
@@ -36,9 +36,8 @@ public class FilterIterator<T> implements Iterator<T> {
     public boolean hasNext() {
         while(source.hasNext() && !found){
             next = source.next();
-            if(p.test((Integer)next)){
-                found = true;
-                return true;
+            if(p.test(next)){                
+                return found = true;
             }
         }
         return false;

@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
+        "e03/02-poly",
         "e03/01-intset",
-        "e03/02-poly"
+        "e05"
     ]
 }
