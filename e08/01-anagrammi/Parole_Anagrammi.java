@@ -2,7 +2,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Parole_Anagrammi extends Parola {
+public class Parole_Anagrammi extends Parola{
 
     /**
      * AF(a) = [Parola_0,...Parola_n] where Parola_i are anagrams of Parola_0 where i is 0<=i<size
@@ -41,6 +41,11 @@ public class Parole_Anagrammi extends Parola {
     public int size(){
         return size;
     }
+
+    public List<Parola> getList(){
+        return list;
+    }
+
     //RI = super.repOk() && size==list.size=>1 && list.get(0).word == this.word
     
     @Override
@@ -54,8 +59,12 @@ public class Parole_Anagrammi extends Parola {
         return false;
     }
 
+
+
     @Override
     public String toString() {        
         return list.toString();
     }
+
+
 }
