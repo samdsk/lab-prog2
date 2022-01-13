@@ -1,0 +1,15 @@
+*** expected-1.txt
+--- actual-1.txt
+***************
+*** 1,5 ****
+  [arcetti, attrice, caretti, catteri]
+  [aspite, paties, peitas, pesati]
+- [arivetti, reattivi, riavetti]
+- [aliberto, bertolai]
+  [rassetti, restasti]
+--- 1,5 ----
++ [aliberto, bertolai]
+  [arcetti, attrice, caretti, catteri]
++ [arivetti, reattivi, riavetti]
+  [aspite, paties, peitas, pesati]
+  [rassetti, restasti]
