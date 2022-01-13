@@ -16,13 +16,12 @@ public class Parole_Anagrammi extends Parola{
     public Parole_Anagrammi(Parola s) throws NullPointerException {
         super(s);
         list = new LinkedList<>();
-        list.add(s);
+        list.add(s);        
         size = 1;
     }
 
-    public List<Parola> Trova_Anagrammi(List<Parola> l)throws NullPointerException {
-        l.remove(list.get(0));
-
+    public List<Parola> Trova_Anagrammi(List<Parola> l)throws NullPointerException {      
+        
         Iterator<Parola> it = l.iterator();
 
         while(it.hasNext()){
@@ -52,7 +51,7 @@ public class Parole_Anagrammi extends Parola{
     public boolean repOk(){
         if(super.repOk()){
             if(size==list.size() 
-            && size >= 1 
+            && size >= 0
             && list.get(0).word.equals(super.word)) return true;
         }
 

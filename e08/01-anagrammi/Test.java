@@ -1,4 +1,3 @@
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,10 +16,11 @@ public class Test{
         reader.close();
 
         List<List<Parola>> output = new LinkedList<>();
+        
         while(!lst.isEmpty()){
             Parole_Anagrammi pa = new Parole_Anagrammi(lst.get(0));
             lst = pa.Trova_Anagrammi(lst);
-            output.add(pa.getList());
+            if(pa.size()>1) output.add(pa.getList());
         }
 
         output.sort(new Comparator<List<Parola>>() {

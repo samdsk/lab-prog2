@@ -1,9 +1,0 @@
-*** expected-4.txt
---- actual-4.txt
-***************
-*** 309,311 ****
---- 309,312 ----
-  [tuzia, zaitu]
-  [unitezza, unizzate]
-  [zavalloni, zillavano]
-+ []
