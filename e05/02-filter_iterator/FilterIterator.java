@@ -36,7 +36,7 @@ public class FilterIterator<T> implements Iterator<T> {
     public boolean hasNext() {
         while(source.hasNext() && !found){
             next = source.next();
-            if(p.test(next)){                
+            if(p.test(next)){
                 return found = true;
             }
         }

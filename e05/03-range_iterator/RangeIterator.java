@@ -16,11 +16,11 @@ public class RangeIterator implements Iterable<Integer> {
 
     //fields
     /**Indicates incremental step */ 
-    final private int step;
+    private final int step;
     /**Upper limit */
-    final private int upper_bound;
+    private final int upper_bound;
     /**Lower Limit */
-    final private int lower_bound;
+    private final int lower_bound;
     /**Next value to be returned */
     int res;
     /**Indicates whether the res is between limits */
@@ -33,26 +33,34 @@ public class RangeIterator implements Iterable<Integer> {
     */
     public RangeIterator(int a,int b,int d){
         if(d==0) throw new RuntimeException("step can't be Zero!");
-        step = d;  
-        if(d>0){           
+        step = d;
+
+        if(b>a){           
            upper_bound = b;
-           lower_bound = a;
+           lower_bound = a;           
         }else{                    
            upper_bound = a;
-           lower_bound = b;
+           lower_bound = b;           
         }
+
+        res = (step>0) ? lower_bound : upper_bound;
+
         next = true;
-        res = lower_bound;
+        
     }
     /**Initialize this as upper_bound = b and lower_bound = a 
      * step = 1
+     * @param a lower limit
+     * @param b upper limit
     */
     public RangeIterator(int a, int b){
         this(a,b,1);
     }
     /**Initialize this as upper_bound = a and lower_bound = 0 
      * step = 1
-    */
+     * 
+     * @param a is the upper_bound
+     */
     public RangeIterator(int a){
         this(0,a,1);
     }
@@ -66,7 +74,8 @@ public class RangeIterator implements Iterable<Integer> {
             public boolean hasNext() {
                 if(!next){
                     res += step;
-                    if(step>=0) next = res < upper_bound;
+                    
+                    if(step>0) return next = res < upper_bound;
                     return next = res > lower_bound;
                 }
                 return next;
