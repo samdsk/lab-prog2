@@ -15,6 +15,18 @@ public class Test{
 
         reader.close();
 
+        find_anagrams(lst);
+
+        //System.out.println(lst);
+    }
+
+    /**
+     * Modifies: system.out and lst
+     * Effects: prints to system.out the lists of anagrams found from the given Parola list lst.
+     *          removes processed anagrams from the list
+     */
+
+    public static void find_anagrams(List<Parola> lst){
         List<List<Parola>> output = new LinkedList<>();
         
         while(!lst.isEmpty()){
@@ -23,29 +35,31 @@ public class Test{
             if(pa.size()>1) output.add(pa.getList());
         }
 
-        output.sort(new Comparator<List<Parola>>() {
-
+        sort_anagram_list(output);
+        print_anagrams(output);
+    }
+    /**
+     * Modifies: the given list l
+     * Effects: Reorder the given list of Parola list l in descending order
+     */
+    public static void sort_anagram_list(List<List<Parola>> l){
+        l.sort(new Comparator<List<Parola>>() {
             @Override
             public int compare(List<Parola> o1, List<Parola> o2) {
                 if(o1.size()==o2.size()) return 0;
                 if(o1.size()>o2.size()) return -1;
                 return 1;             
-            }
-            
+            }            
         });
-        
-
-        for (List<Parola> s: output) {
+    }
+    /**
+     * Modifies: sysout.out
+     * Effects: prints to system.out the lists of Parola of the given list of Parola list l
+     */
+    public static void print_anagrams(List<List<Parola>> l){
+        for (List<Parola> s: l) {
             System.out.println(s.toString());
         }
-
-/*        Collections.reverse(output);
-
-        for (List<Parola> s: output) {
-            System.out.println(s.toString());
-        }
-
-*/
     }
 
 } 
