@@ -25,7 +25,6 @@ public class Test{
      * Effects: prints to system.out the lists of anagrams found from the given Parola list lst.
      *          removes processed anagrams from the list
      */
-
     public static void find_anagrams(List<Parola> lst){
         List<List<Parola>> output = new LinkedList<>();
         

@@ -1,85 +1,102 @@
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
+import java.util.Map;
+import java.util.Map.Entry;
 
-public class Anagrammi extends Anagramma{
-    //Overview questa classe estende la classe anagramma, permette di creare 
-    //una lista di anagrammi per una data stringa e una data lista di stringhe
+public class Anagrammi {
+    //Overview Anagrammi is a mutable class which given a list of words regroups them into a list of anagrams
+    //Es. Map<Word_Signature,Anagrams of Word_Signature>
 
     /**
-     * AF(list) = [list[0],...,a[i],...,a[size]] dove i è un numero intero 0<=i<size
+     * AF(m) = 
+     *  { 
+     *      word_sig_i : [anagramma_i,...]
+     *      .
+     *      .
+     *      .
+     *      word_sig_j : [anagramma_j,...]
+     *  }
      * 
-     * RI = super.RI && size>=1 && anagram_lst.size == size
+     *  where anagramma_i is the list of anagrams corrisponds to word_signature_i
+     * 
+     * RI(m) = m != null && for each m.key_i != m.key_j | i != j
      */
 
-    //fields
 
-    //lista di anagrammi
-    private final List<String> anagram_lst;
-
-    //numero di elementi nella lista anagram_lst
-    private int size;
-
-    //constructors
-
-    /**
-     * Initialize this as super(s) and adds s to anagram_lst 
-     */
-    public Anagrammi(String s){        
-        super(s);    
-        anagram_lst = new ArrayList<>();  
-        anagram_lst.add(s);  
-        size = 1;
-
-        assert repOk();
+    //A map which maps a Word_Signature -> List of it's anagrams
+    private Map<String,List<String>> m;
+    
+    /**Initialize this as empty map */
+    public Anagrammi(){
+        m = new HashMap<>();
     }
     
     /**
-     * Modifies: this and lst
-     * Effects: Appeneds to anagram_lst anagram words found in lst removing them from lst
-     *          Returns modified lst
-     *          Throws NullPointerException if lst list is null
+     * Modifies: this
+     * Effects: Process a list l of words mapping them according to word_signature
+     *          Throws NullPointerException if l == null
      */
-    public List<String> build_list_of_anagrams(List<String> lst)throws NullPointerException{
-        if(lst == null) throw new NullPointerException("Provided list is null!");
-        lst.remove(super.getString());
-        Iterator<String> it = lst.iterator();
-        while(it.hasNext()){
-            String s = it.next();
-            if(isAnagram(s)) {
-                anagram_lst.add(s);
-                it.remove();
-                size++;
+    public void ProcessWords(List<Parola> l){
+        if(l == null) throw new NullPointerException();
+        for (Parola p : l) {
+            String key = p.getSig();
+            if(m.containsKey(p.getSig())){
+                m.get(key).add(p.toString());
+            }else{
+                List<String> temp = new LinkedList<>();
+                temp.add(p.toString());
+                m.put(key, temp);
             }
         }
-
-        assert repOk();
-        //System.out.println(lst.toString());
-        return lst;
     }
 
-    @Override
-    public boolean repOk(){
-        if(super.repOk()){
-            return size>=1 && anagram_lst.size() == size;
+    /**
+     * Effects: Returns a list of lists of anagrammi contained in this.m 
+     */
+    public List<List<String>> getAnagrammi(){
+        if(m.isEmpty()) throw new EmptyMapException();        
+        List<List<String>> anagrammi = new LinkedList<>();
+
+        for (List<String> temp : m.values()) {
+            if(temp.size()>1) anagrammi.add(temp);
         }
-        return false;
+
+        return anagrammi;
+    }
+    
+    /**RI(m) = m != null && for each m.key_i != m.key_j | i != j */
+    public boolean repOk(){
+        if(m == null) return false;
+        
+        for(String key1 :m.keySet()){
+            int count = 0;
+            for (String key2 :m.keySet()) {
+                if(key1.equals(key2)) count++;
+            }
+            if(count>1) return false;
+        }
+
+        return true;
+
     }
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if(o == null) return false;
-        if( o == this) return true;
-        if(! (o instanceof Anagrammi)) return false;
+        if(o == this) return true;
 
         Anagrammi a = (Anagrammi) o;
 
-        if(!super.equals(a)) return false;
-
-        if(size!= a.size) return false;
-        for (String s1 : a.anagram_lst) {
-            if(!anagram_lst.contains(s1)) return false;
+        for(Entry<String,List<String>> temp : a.m.entrySet()){
+            String key = temp.getKey();
+            if(m.containsKey(key)){
+                List<String> l1 = temp.getValue();
+                List<String> l2 = m.get(key);
+                for (String s: l1) {
+                    if(!l2.contains(s)) return false;
+                }
+            }else return false;
         }
 
         return true;
@@ -87,13 +104,19 @@ public class Anagrammi extends Anagramma{
 
     @Override
     public String toString(){
-        
-        return anagram_lst.toString();
-    }
+        if(m.isEmpty()){
+            return "{}";
+        }
 
-    @Override
-    public int hashCode(){
-        return super.hashCode() + anagram_lst.hashCode() +Objects.hash(size);
+        String output = "{\n";
+        for(Entry<String,List<String>> temp : m.entrySet()){
+            output += temp.getKey();
+            output += " : ";
+            output += temp.getValue().toString();
+            output += "\n";
+        }
+
+        return output+="}";
     }
 
 }

@@ -18,7 +18,7 @@ public class Parola {
     protected final String sorted_word;
 
     /**
-     * Initialize this as word = s and sorted_word = reordered word
+     * Initialize this as word = s and sorted_word = sort(s)
      * if s is null throws NullPointerException
      */
     public Parola(String s) throws NullPointerException{
@@ -27,6 +27,10 @@ public class Parola {
         sorted_word = sort(s);
 
         assert repOk();
+    }
+
+    public String getSig(){
+        return this.sorted_word;
     }
 
     /**

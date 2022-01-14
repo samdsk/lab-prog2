@@ -1,3 +1,5 @@
+
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -50,6 +52,20 @@ public class Parole_Anagrammi extends Parola{
             }
         }
         return l;
+    }
+
+    public void BuildAnagrammi(List<Parola> l)throws NullPointerException {      
+        
+        for (Parola p : l) {
+            if(isAnagram(p)){
+                if(!list.contains(p)) {
+                    list.add(0,p);
+                    size++;
+                }
+            }
+        }
+
+        Collections.reverse(list);
     }
 
     /**
