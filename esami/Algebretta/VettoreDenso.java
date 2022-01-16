@@ -9,7 +9,7 @@ public class VettoreDenso{
     /**
      * AF(vettore,dimensione) = vettore[0],...,vettore[i],... dove i è 0<=i<dimensione
      * 
-     * RI(v) = v != null && v.dim == v.vettore.length
+     * RI(v) = v != null && v.dim == v.vettore.length && v.dim>=0
      */
 
     private final int dim;
