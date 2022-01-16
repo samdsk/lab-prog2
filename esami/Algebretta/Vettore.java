@@ -53,7 +53,7 @@ public class Vettore {
     }
 
 
-    public String toString() {        
+    public String toString() {
         return vettore.toString();
     }
 }

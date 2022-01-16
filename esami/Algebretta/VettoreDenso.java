@@ -3,6 +3,14 @@ package Algebretta;
 import java.util.Arrays;
 
 public class VettoreDenso{
+    //Overview VettoreDenso è un tipo immutabile, rappresenta un vettore a valori interi di dimensione n;
+    //vettore di dimensione 4 -> 1,2,3,4
+
+    /**
+     * AF(vettore,dimensione) = vettore[0],...,vettore[i],... dove i è 0<=i<dimensione
+     * 
+     * RI(v) = v != null && v.dim == v.vettore.length
+     */
 
     private final int dim;
     private final int[] vettore;
@@ -15,6 +23,10 @@ public class VettoreDenso{
     public VettoreDenso(int[] arr){
         dim = arr.length;
         vettore = Arrays.copyOf(arr, dim);
+    }
+    public VettoreDenso(VettoreDenso v){
+        dim = v.dim;
+        vettore = Arrays.copyOf(v.vettore, dim);
     }
 
     public int dim() {
@@ -34,6 +46,14 @@ public class VettoreDenso{
         return output;
     }
 
+    public int prodotto(VettoreDenso v){
+        int output = 0;
+        for (int i = 0; i < dim; i++) {
+            output += this.vettore[i]*v.vettore[i];
+        }
+
+        return output;
+    }
 
     public VettoreDenso piu(VettoreDenso v) {
         if(v==null) throw new NullPointerException();
@@ -60,8 +80,9 @@ public class VettoreDenso{
         return output;
     }
 
-
-    public String toString() {        
+    @Override
+    //da finire
+    public String toString() {
         return vettore.toString();
     }
 
