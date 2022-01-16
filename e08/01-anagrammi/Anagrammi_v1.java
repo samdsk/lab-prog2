@@ -3,14 +3,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
-public class Anagrammi extends Anagramma{
+public class Anagrammi_v1 extends Anagramma{
     //Overview questa classe estende la classe anagramma, permette di creare 
     //una lista di anagrammi per una data stringa e una data lista di stringhe
 
     /**
      * AF(list) = [list[0],...,a[i],...,a[size]] dove i è un numero intero 0<=i<size
      * 
-     * RI = super.RI && size>=1 && anagram_lst.size == size
+     * RI = super.repOk() && size>=1 && anagram_lst.size == size
      */
 
     //fields
@@ -26,7 +26,7 @@ public class Anagrammi extends Anagramma{
     /**
      * Initialize this as super(s) and adds s to anagram_lst 
      */
-    public Anagrammi(String s){        
+    public Anagrammi_v1(String s){        
         super(s);    
         anagram_lst = new ArrayList<>();  
         anagram_lst.add(s);  
@@ -69,11 +69,11 @@ public class Anagrammi extends Anagramma{
 
     @Override
     public boolean equals(Object o){
-        if(o == null) return false;
-        if( o == this) return true;
-        if(! (o instanceof Anagrammi)) return false;
+        //if(o == null) return false;
+        if(o == this) return true;
+        if(! (o instanceof Anagrammi_v1)) return false;
 
-        Anagrammi a = (Anagrammi) o;
+        Anagrammi_v1 a = (Anagrammi_v1) o;
 
         if(!super.equals(a)) return false;
 
@@ -86,8 +86,7 @@ public class Anagrammi extends Anagramma{
     }
 
     @Override
-    public String toString(){
-        
+    public String toString(){        
         return anagram_lst.toString();
     }
 

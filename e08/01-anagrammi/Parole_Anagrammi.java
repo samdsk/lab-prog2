@@ -1,4 +1,3 @@
-
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -98,7 +97,7 @@ public class Parole_Anagrammi extends Parola{
     }
 
     @Override
-    public String toString() {        
+    public String toString() {
         return list.toString();
     }
 
