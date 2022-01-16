@@ -1,4 +1,7 @@
 package Algebretta;
+
+import java.util.Objects;
+
 public class Matrice {
     //Overview Matrice è un tipo immutabile, rappresenta una matrice quadratica a valori interi di dimensione n
     //è strutturato come un vettore di dimensione n di VettoriDensi di dimensione n
@@ -24,6 +27,8 @@ public class Matrice {
         matrice = new VettoreDenso[dim];
 
         for(int i=0;i<dim;i++) matrice[i] = new VettoreDenso(dim);
+
+        assert repOk();
     }
 
     public Matrice(final Matrice m){
@@ -33,8 +38,17 @@ public class Matrice {
         for (int i = 0; i < matrice.length; i++){
             matrice[i] = new VettoreDenso(m.matrice[i]);
         }
+
+        assert repOk();
     }
 
+    public boolean repOk(){
+        if(matrice != null
+        && dim>=1
+        && dim == matrice.length) return true;
+
+        return false;
+    }
     public Matrice diagonale(){
         Matrice output = new Matrice(dim);
         for (int i = 0; i < dim; i++) {
@@ -134,6 +148,37 @@ public class Matrice {
 
         return output;
 
+    }
+
+    @Override
+    public String toString() {
+        String output = "[";
+
+        for (int i = 0; i < dim; i++) {
+            output += matrice[i].vettoreToString();
+            if(i<dim-1) output += "; ";            
+        }
+
+        return output += "]";
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if(!(o instanceof Matrice)) return false;
+        Matrice m = (Matrice) o;
+
+        if(this.dim != m.dim) return false;
+        for(int i=0;i<dim;i++){
+            if(!(this.matrice[i].equals(m.matrice[i]))) return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dim,matrice);
     }
 
 }

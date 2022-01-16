@@ -94,6 +94,17 @@ public class VettoreDenso{
         return output;
     }
 
+    public String vettoreToString(){
+        String output = "";
+        for (int i = 0; i < dim; i++) {
+            output += vettore[i];
+            if(i<dim-1) output+= ", ";
+        }
+
+        return output;
+
+    }
+
     @Override
     public boolean equals(Object o) {
         if(!(o instanceof VettoreDenso)) return false;
@@ -114,7 +125,7 @@ public class VettoreDenso{
         String output = "(";
         for (int i = 0; i < dim; i++) {
             output += vettore[i];
-            if(i<dim-1) output+= ",";
+            if(i<dim-1) output+= ", ";
         }
 
         return output += ")";
