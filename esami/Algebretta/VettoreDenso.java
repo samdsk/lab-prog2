@@ -1,6 +1,7 @@
 package Algebretta;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class VettoreDenso{
     //Overview VettoreDenso è un tipo immutabile, rappresenta un vettore a valori interi di dimensione n;
@@ -9,7 +10,7 @@ public class VettoreDenso{
     /**
      * AF(vettore,dimensione) = vettore[0],...,vettore[i],... dove i è 0<=i<dimensione
      * 
-     * RI(v) = v != null && v.dim == v.vettore.length && v.dim>=0
+     * RI(v) = v.dim == v.vettore.length && v.dim>=1
      */
 
     private final int dim;
@@ -18,16 +19,29 @@ public class VettoreDenso{
     public VettoreDenso(int n){
         dim = n;
         vettore = new int[dim];
+        assert repOk();
     }
 
     public VettoreDenso(int[] arr){
         dim = arr.length;
         vettore = Arrays.copyOf(arr, dim);
+        assert repOk();
     }
     public VettoreDenso(VettoreDenso v){
         dim = v.dim;
         vettore = Arrays.copyOf(v.vettore, dim);
+        assert repOk();
     }
+
+    public boolean repOk(){
+        if(vettore!=null 
+        && dim>=1
+        && vettore.length == dim)
+        return true;
+        
+        return false;
+    }
+
 
     public int dim() {
         return this.dim;
@@ -81,9 +95,34 @@ public class VettoreDenso{
     }
 
     @Override
-    //da finire
+    public boolean equals(Object o) {
+        if(!(o instanceof VettoreDenso)) return false;
+
+        VettoreDenso v = (VettoreDenso) o;
+
+        if(this.dim != v.dim) return false;
+        for(int i=0;i<dim;i++){
+            if(this.vettore[i] != v.vettore[i]) return false;
+        }
+
+        return true;
+    }
+
+
+    @Override
     public String toString() {
-        return vettore.toString();
+        String output = "(";
+        for (int i = 0; i < dim; i++) {
+            output += vettore[i];
+            if(i<dim-1) output+= ",";
+        }
+
+        return output += ")";
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dim,vettore);
     }
 
 }
