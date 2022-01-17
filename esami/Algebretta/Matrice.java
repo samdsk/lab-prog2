@@ -3,7 +3,7 @@ package Algebretta;
 import java.util.Objects;
 
 public class Matrice {
-    //Overview Matrice è un tipo immutabile, rappresenta una matrice quadratica a valori interi di dimensione n
+    //Overview Matrice è un tipo immutabile, rappresenta una matrice quadratica NxN a valori interi di dimensione n
     //è strutturato come un vettore di dimensione n di VettoriDensi di dimensione n
     //Es. Matrice di dimesione 2 
     //  1 2
@@ -11,17 +11,21 @@ public class Matrice {
 
     /**
      * AF(matrice, dim) = 
-     *      matrice[0][0],...,matrice[0][j],...,matrice[0][dim-1]
-     *      matrice[i][0],...,matrice[i][j],...,matrice[i][dim-1]
-     *      matrice[dim-1][0],...,matrice[dim-1][j],...,matrice[dim-1][dim-1]
+     *      [ matrice[0][0],...,matrice[0][j],...,matrice[0][dim-1] ; matrice[i][0],...,matrice[i][j],...,matrice[i][dim-1] ]
      *  dove i,j sono 0<=i<dim e 0<=j<dim
      * 
-     * RI(m) = m.dim >= 1 && m.lenth == m.dim && m != null
+     * RI(m) = m.dim >= 1 && m.matrice.lenth == m.dim && m.matrice != null
      */
 
+    //fields
+    /**un array di tipo VettoreDenso */
     private final VettoreDenso[] matrice;
+    /**dimensione della matrice */
     private final int dim;
 
+    /**
+     * inizializza this come una matrice nulla di dimensione size
+     */
     public Matrice(final int size){
         dim = size;
         matrice = new VettoreDenso[dim];
@@ -31,7 +35,12 @@ public class Matrice {
         assert repOk();
     }
 
+    /**
+     * inizializza this come una matrice quadratica equivalente a m
+     * throws NullPointerException se m == null
+     */
     public Matrice(final Matrice m){
+        if(m==null) throw new NullPointerException("Matrice m non può essere null!");
         dim = m.dim;
         matrice = new VettoreDenso[dim];
 
@@ -42,6 +51,9 @@ public class Matrice {
         assert repOk();
     }
 
+    /**
+     * RI(m) = m.dim >= 1 && m.matrice.lenth == m.dim && m.matrice != null
+     */
     public boolean repOk(){
         if(matrice != null
         && dim>=1
@@ -49,6 +61,13 @@ public class Matrice {
 
         return false;
     }
+
+    /**
+     * Effects: restituisce la matrice diagonale della matrice this
+     * Es. 1 2 3    1 0 0
+     *     4 5 6 -> 0 5 0
+     *     7 8 9    0 0 9
+     */
     public Matrice diagonale(){
         Matrice output = new Matrice(dim);
         for (int i = 0; i < dim; i++) {
@@ -59,6 +78,12 @@ public class Matrice {
         return output;
     }
 
+    /**
+     * Effects: restituisce la matrice identita di this
+     * Es. 1 2 3    1 0 0
+     *     4 5 6 -> 0 1 0
+     *     7 8 9    0 0 1
+     */
     public Matrice identita(){
         Matrice output = new Matrice(dim);
         for (int i = 0; i < dim; i++) {
@@ -69,7 +94,12 @@ public class Matrice {
         return output;
     }
 
+    /**
+     * Effects: restituisce una matrice identita di dimensione n
+     * throws IllegalArgumentException se la dimensione n è <= 1
+     */
     public Matrice identita(final int n){
+        if(n<1) throw new IllegalArgumentException("Dimensione della matrice identità deve essere >0");
         Matrice output = new Matrice(n);
         for (int i = 0; i < n; i++) {
             int[] temp = new int[n];
@@ -79,12 +109,16 @@ public class Matrice {
         return output;
     }
 
+    /**
+     * Effects: restituisce la dimensione della matrice this
+     */
     public int dim() {
         return this.dim;
     }
 
-
-
+    /**
+     * Effects: restituisce la matrice ottenuta facendo il prodotto tra this e uno scalare 
+     */
     public Matrice prodottoScalare(final int alpha){
         Matrice output = new Matrice(dim);
 
@@ -102,7 +136,10 @@ public class Matrice {
         }
         return new VettoreDenso(temp);
     }
-*/
+*/  
+    /**
+     * Effects: restituisce una matrice trasposta della matrice this
+     */
     public Matrice matriceTrasposta(){
         Matrice output = new Matrice(dim);
         int[] temp_array = new int[dim]; 
@@ -116,8 +153,15 @@ public class Matrice {
 
         return output;
     }
-
+    /**
+     * Effects: restituisce la matrice prodotto facendo la somma tra m e this,
+     * throw NullPointerException se m == null
+     * throw IllegalArgumentException se le matrici hanno dimensioni diverse
+     */
     public Matrice sommaMatriciale(final Matrice m){
+        if(m==null) throw new NullPointerException();
+        if(m.dim!=this.dim) throw new IllegalArgumentException("Matrici sono di dimensione diversa! this:"+this.dim+" m:"+m.dim);
+
         Matrice output = new Matrice(dim);
 
         for(int i=0;i<dim;i++){
@@ -127,6 +171,11 @@ public class Matrice {
         return output;
     }
 
+    /**
+     * Effects: restituisce la matrice prodotto facendo il prodotto tra m e this,
+     * throw NullPointerException se m == null
+     * throw IllegalArgumentException se le matrici hanno dimensioni diverse
+     */
     public Matrice prodottoMatriciale(final Matrice m){
         if(m==null) throw new NullPointerException();
         if(m.dim!=this.dim) throw new IllegalArgumentException("Matrici sono di dimensione diversa! this:"+this.dim+" m:"+m.dim);
@@ -150,6 +199,9 @@ public class Matrice {
 
     }
 
+    /**
+     * AF
+     */
     @Override
     public String toString() {
         String output = "[";
