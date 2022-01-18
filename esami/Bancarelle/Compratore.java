@@ -15,11 +15,11 @@ public class Compratore {
         bancarelle.addAll(b);
     }
 
-    public Acquista compra(int num, Giocattolo g){
-        return compra(num, g,new Acquista(g));
+    public Acquisto compra(int num, Giocattolo g){
+        return compra(num, g,new Acquisto(g));
     }
 
-    private Acquista compra(int num, Giocattolo g,Acquista a){
+    private Acquisto compra(int num, Giocattolo g,Acquisto a){
         if(bancarelle.isEmpty()) return a;
         if(num==0) return a;
 

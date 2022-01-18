@@ -44,8 +44,9 @@ public class Test {
         s.close();
         /*
         MODIFICARE: aggiungere l'istanziazione del compratore, es:
-        final Compratore compratore = new Compratore(bancarelle);
+        
         */
+        final Compratore compratore = new Compratore(bancarelle);
         final Acquisto ordine = compratore.compra(numDaComprare, giocattoloDaComprare);
         System.out.println(ordine);
     }

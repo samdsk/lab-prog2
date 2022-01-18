@@ -2,13 +2,13 @@ package Bancarelle;
 
 import java.util.ArrayList;
 import java.util.List;
-public class Acquista {  
+public class Acquisto {  
     private final String giocattolo;  
     private final List<String> proprietari;
     private final List<Integer> prezzi;
     private final List<Integer> numero_pezzi;
 
-    public Acquista(Giocattolo g){
+    public Acquisto(Giocattolo g){
         giocattolo = g.toString();
         proprietari = new ArrayList<>();
         prezzi = new ArrayList<>();
