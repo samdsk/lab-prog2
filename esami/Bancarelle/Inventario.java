@@ -2,6 +2,7 @@ package Bancarelle;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Inventario{
     private final Map<Giocattolo,Integer> inventario;
@@ -33,6 +34,18 @@ public class Inventario{
             inventario.put(g,temp+num);
         }
         throw new IllegalArgumentException("Il giocattolo non è presente nell'inventario.");
+    }
+
+    public boolean hasGiocattolo(Giocattolo g){
+        Objects.requireNonNull(g);
+
+         if(inventario.containsKey(g)) return true;
+         return false;
+    }
+
+    public int howMany(Giocattolo g){
+        if(hasGiocattolo(g)) return inventario.get(g);
+        return 0;
     }
 
 }

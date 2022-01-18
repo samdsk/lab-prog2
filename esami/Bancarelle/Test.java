@@ -1,16 +1,24 @@
 package Bancarelle;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
 public class Test {
     public static void main(final String[] args) {
         /* Lettura dei parametri dalla linea di comando */
         final int numDaComprare = Integer.parseInt(args[0]);
         final Giocattolo giocattoloDaComprare = new Giocattolo(args[1], args[2]);
+
         /* Lettura del flusso di ingresso */
         final Scanner s = new Scanner(System.in);
         final int numBancarelle = s.nextInt();
         final Set<Bancarella> bancarelle = new HashSet<>(numBancarelle);
         final Map<Giocattolo, Integer> giocattolo2prezzo = new HashMap<>();
         final Inventario inventario = new Inventario();
+        
         for (int b = 0; b < numBancarelle; b++) {
         /* Lettura di una bancarella */
         final String proprietario = s.next();
@@ -27,8 +35,9 @@ public class Test {
         }
         /*
         MODIFICARE: aggiungere l'istanziazione del listino, es:
-        final Listino listino = new ListinoConcreto(giocattolo2prezzo);
+        
         */
+        final Listino listino = new PrezzoLineare(giocattolo2prezzo);
         final Bancarella bancarella = new Bancarella(proprietario, inventario, listino);
         bancarelle.add(bancarella);
         }
