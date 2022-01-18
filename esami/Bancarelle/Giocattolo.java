@@ -1,5 +1,7 @@
 package Bancarelle;
 
+import java.util.Objects;
+
 public class Giocattolo {
     private final String nome;
     private final String materiale;
@@ -40,5 +42,10 @@ public class Giocattolo {
     @Override
     public String toString() {
         return nome+" di "+materiale;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome,materiale);
     }
 }

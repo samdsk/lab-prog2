@@ -1,5 +1,6 @@
 package Bancarelle;
 
-public class Listino {
-    
+public interface Listino {
+    int prezzo(Giocattolo g);
+    int prezzo(Giocattolo g, int num);
 }
