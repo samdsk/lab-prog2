@@ -15,8 +15,14 @@ public class Compratore {
         bancarelle.addAll(b);
     }
 
-    public Acquista compra(int num, Giocattolo g,Acquista a){
+    public Acquista compra(int num, Giocattolo g){
+        return compra(num, g,new Acquista(g));
+    }
+
+    private Acquista compra(int num, Giocattolo g,Acquista a){
+        if(bancarelle.isEmpty()) return a;
         if(num==0) return a;
+
         Bancarella b = find_min(g);
         
         if(b == null) throw new IllegalArgumentException("Giocattolo non trovato.");
@@ -30,7 +36,7 @@ public class Compratore {
         num -= b.howMany(g);
         bancarelle.remove(b);
 
-        compra(num, g,a);
+        return compra(num, g,a);
     }
 
     public Bancarella find_min(Giocattolo g){
