@@ -1,5 +1,3 @@
-package Algebretta;
-
 import java.util.Scanner;
 
 public class Soluzione{
