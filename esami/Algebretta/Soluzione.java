@@ -12,5 +12,7 @@ public class Soluzione{
             String exp = reader.nextLine();
             
         }
+
+        reader.close();
     }
 }
