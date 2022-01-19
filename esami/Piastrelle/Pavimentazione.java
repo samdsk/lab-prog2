@@ -2,7 +2,7 @@ package Piastrelle;
 
 import java.util.Objects;
 
-public class Pavimentazione {
+public class Pavimentazione implements Piastrella{
     /**
      * RI = quantita > 0 e piastrella != null
      */
