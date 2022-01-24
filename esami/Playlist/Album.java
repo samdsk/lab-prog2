@@ -1,11 +1,12 @@
 package Playlist;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
-public class Album implements Musica{
+public class Album implements Musica, Iterable<Musica>{
 
     private final String titolo;
     private final Durata durata;
@@ -184,5 +185,25 @@ public class Album implements Musica{
     public int hashCode() {
         return Objects.hash(titolo,durata,lista_brani);
     }
+
+    @Override
+    public Iterator<Musica> iterator() {
+        
+        return new Iterator<Musica>() {
+            Iterator<Brano> it = lista_brani.iterator();
+            @Override
+            public boolean hasNext() {                
+                return it.hasNext();
+            }
+
+            @Override
+            public Brano next() {
+                return it.next();
+            }
+            
+        };
+    }
+
+
     
 }
