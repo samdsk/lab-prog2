@@ -3,6 +3,8 @@ package Playlist;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
+
 import Playlist.Album.Brano;
 
 public class Playlist implements Musica, Iterable<Album>{
@@ -41,7 +43,7 @@ public class Playlist implements Musica, Iterable<Album>{
             if(a.contains(b)){
                 playlist.remove(a);
                 durata.sub(b.getDurata());
-                assert repOk();                
+                assert repOk();
             }
         }
 
@@ -114,6 +116,49 @@ public class Playlist implements Musica, Iterable<Album>{
                 return it.next();
             }
         };
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder o = new StringBuilder();
+        o.append("Nome playlist: "+titolo+"\n");
+
+        int count=0;
+        for (Album a : playlist) {
+            o.append((++count)+" - " + a.getBrano(0).toString() + ", "+a.getTitolo()+"\n");
+        }
+        o.append("Durata totale: "+ durata.toString( )+"\n");
+        return o.toString();
+    }
+
+    public Brano getBrano(int pos){
+        if((pos>=playlist.size()) && (pos<0))
+            throw new IllegalArgumentException("Playlist brano position out of bounds.");
+        return playlist.get(pos).getBrano(0);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if(!( o instanceof Playlist)) return false;
+
+        Playlist p = (Playlist) o;
+
+        if( titolo.equals(p.getTitolo()) &&
+            durata.equals(p.getDurata()) &&
+            playlist.size() == p.getSize()
+        ){
+            for(int i= 0;i<playlist.size();i++){
+                if (!getBrano(i).equals(p.getBrano(i))) return false;
+            }
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(titolo,durata,playlist);
     }
     
 }

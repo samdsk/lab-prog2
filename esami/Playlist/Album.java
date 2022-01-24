@@ -176,6 +176,7 @@ public class Album implements Musica, Iterable<Musica>{
             for(int i= 0;i<lista_brani.size();i++){
                 if (!getBrano(i).equals(a.getBrano(i))) return false;
             }
+            return true;
         }
 
         return false;
@@ -203,7 +204,4 @@ public class Album implements Musica, Iterable<Musica>{
             
         };
     }
-
-
-    
 }
