@@ -8,11 +8,7 @@
             "type": "java",
             "name": "Launch Current File",
             "request": "launch",
-            "mainClass": "${file}",
-            "args": [
-                "^<",
-                "input-1.txt"
-            ]
+            "mainClass": "${file}"            
         },
         {
             "type": "java",

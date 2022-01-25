@@ -34,10 +34,6 @@ public class Playlist implements Musica, Iterable<Album>{
         }
     }
 
-    public void add(Album a){
-
-    }
-
     public void remove(Brano b){
         if(b == null) throw new NullPointerException("Brano can't be null");
         for (Album a : playlist) {
@@ -81,6 +77,7 @@ public class Playlist implements Musica, Iterable<Album>{
         for (Album a : p) {
             if(!playlist.contains(a))
                 playlist.add(a);
+                durata.add(a.getDurata());
         }
 
         assert repOk();
