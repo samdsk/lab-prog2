@@ -1,5 +1,6 @@
 package Playlist;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -33,7 +34,7 @@ public class Test {
 
                         Album temp_album = new Album(lista_brani,title);                        
                         lista_album.add(temp_album);
-                        temp_album.toString();
+                        System.out.println(temp_album.toString());
 
                         break;
 
@@ -53,7 +54,7 @@ public class Test {
                             playlist.add(temp_album_1.getBrano(pos_brano),temp_album_1.getTitolo());
                         }
                         lista_playlist.add(playlist);
-                        playlist.toString();
+                        System.out.println(playlist.toString());
                         break;
                     default:
                         break;
@@ -62,5 +63,15 @@ public class Test {
             break;
             
         }
+
+        reader.close();
+
+        Playlist fuse = new Playlist("Fuse");
+
+        for (Playlist p : lista_playlist) {
+            fuse.fuse(p);
+        }
+
+        System.out.println(fuse.toString());
     }
 }

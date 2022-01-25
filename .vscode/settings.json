@@ -1,7 +1,8 @@
 {
     "java.project.sourcePaths": [
+        "e05",
         "e03/02-poly",
         "e03/01-intset",
-        "e05"
+        "esami/Playlist"
     ]
 }

@@ -1,5 +1,6 @@
 package Playlist;
 
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -198,7 +199,7 @@ public class Album implements Musica, Iterable<Musica>{
             }
 
             @Override
-            public Brano next() {
+            public Musica next() {
                 return it.next();
             }
             
