@@ -4,4 +4,5 @@ public interface Entry {
     int getDimension();
     boolean isFile();
     boolean isDirectory();
+    Path getPath();
 }

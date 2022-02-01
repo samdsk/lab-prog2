@@ -1,25 +1,29 @@
-import java.util.ArrayList;
+
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
 public class Directory implements Entry, Iterable<Entry>{
 
     /**
-     * RI = name != null && name != "" && dim>=0 && noDuplicates() == true
+     * RI = name != null && name != "" && dim>=0 && noDuplicates() == true && abs_path != null
      */
     private final String name;
     private Dimension dim;
+    private final Path abs_path;
+    //private final Path rel_path;
 
     private final List<Entry> elements;
 
-    public Directory(final String n){
+    public Directory(final String n,Path p){
         if(Objects.requireNonNull(n).length()<1) throw new IllegalArgumentException("Nome del directory non pu essere vuoto");
+        Objects.requireNonNull(p);
 
         name = n;
         dim = new Dimension();
-        
-        elements = new ArrayList<>();
+        abs_path = new Path(p.add(this));
+        elements = new LinkedList<>();
 
         assert repOk();
     }
@@ -28,7 +32,9 @@ public class Directory implements Entry, Iterable<Entry>{
         if(name != null 
         && !name.equals("")
         && dim.getDim()>=0
-        && noDuplicates()) return true;
+        && noDuplicates()
+        && abs_path != null)
+            return true;
 
         return false;
     }
@@ -46,7 +52,55 @@ public class Directory implements Entry, Iterable<Entry>{
         return true;
     }
 
-    public boolean contains(Entry e){
+    public void createFile(final String n,final int d){
+        if(Objects.requireNonNull(n).length()<1) throw new IllegalArgumentException("Nome del file non può essere vuoto!");
+        if(Objects.requireNonNull(d)<0) throw new IllegalArgumentException("Dimensione del file non può essere negativo!");
+
+        File f = new File(n,d,abs_path);
+
+        if(!elements.contains(f)){
+
+            elements.add(f);
+            dim = dim.add(d);
+
+            assert repOk();
+        }
+    }
+
+    public void createDirectory(final String n){
+        if(Objects.requireNonNull(n).length()<1) throw new IllegalArgumentException("Nome del Directory non può essere vuoto!");
+        
+        Directory dir = new Directory(n,abs_path);
+
+        if(!containsDir(dir)){
+            elements.add(dir);
+        }
+    }
+
+    public boolean containsDir(Directory d){
+        for(Entry e : elements){
+            if(e.isDirectory() && e.getName().equals(d.name))
+                return true;
+        }
+
+        return false;
+    }
+
+    public boolean removeFile(Entry e){
+
+        if(elements.contains(Objects.requireNonNull(e))){
+            elements.remove(e);
+            assert repOk();
+
+            return true;
+        }
+
+        return false;
+    }
+
+    
+
+    public boolean arcCheck(Entry e){
         return elements.contains(e) && isDirectory();
     }
 
@@ -57,7 +111,7 @@ public class Directory implements Entry, Iterable<Entry>{
 
     @Override
     public int getDimension() {
-        return (new Dimension(dim.getDim())).getDim();
+        return dim.getDim();
     }
 
     @Override
@@ -74,6 +128,11 @@ public class Directory implements Entry, Iterable<Entry>{
     public Iterator<Entry> iterator() {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public Path getPath() {
+        return abs_path;
     }
     
 }
