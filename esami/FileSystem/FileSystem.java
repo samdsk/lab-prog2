@@ -1,5 +1,3 @@
-package FileSystem;
-
 import java.util.List;
 
 public interface FileSystem{
