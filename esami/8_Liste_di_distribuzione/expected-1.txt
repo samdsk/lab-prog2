@@ -1,0 +1,31 @@
+Alias primo =
+	locale2@dominio.baz
+	locale1@dominio.baz
+	locale0@dominio.baz
+Alias secondo =
+	locale3@dominio.baz
+	locale2@dominio.baz
+	locale1@dominio.baz
+	locale0@dominio.baz
+List somma =
+	locale2@dominio.baz
+	locale1@dominio.baz
+	locale0@dominio.baz
+	locale3@dominio.baz
+List differenza =
+	locale3@dominio.baz
+Alias primo =
+	locale2@dominio.baz
+	locale0@dominio.baz
+Alias secondo =
+	locale4@dominio.baz
+	locale3@dominio.baz
+	locale2@dominio.baz
+List somma =
+	locale2@dominio.baz
+	locale0@dominio.baz
+	locale4@dominio.baz
+	locale3@dominio.baz
+List differenza =
+	locale4@dominio.baz
+	locale3@dominio.baz

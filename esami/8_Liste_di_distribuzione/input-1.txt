@@ -1,0 +1,17 @@
+primo@dominio.baz = locale0, locale1, locale2
+secondo@dominio.baz = locale2, @primo, locale3
+terza = primo
+quarta = secondo
+somma = terza + quarta
+differenza = quarta - terza
+primo
+secondo
+somma
+differenza
+primo -= locale1
+secondo += locale4
+secondo -= @primo
+primo
+secondo
+somma
+differenza

@@ -1,0 +1,1218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Testo</title>
+<style>
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #1b1f23;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1:hover .anchor .octicon-link:before,
+.markdown-body h2:hover .anchor .octicon-link:before,
+.markdown-body h3:hover .anchor .octicon-link:before,
+.markdown-body h4:hover .anchor .octicon-link:before,
+.markdown-body h5:hover .anchor .octicon-link:before,
+.markdown-body h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'%3E%3C/path%3E%3C/svg%3E");
+}.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #24292e;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfe2e5;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body :checked+.radio-label {
+  position: relative;
+  z-index: 1;
+  border-color: #0366d6;
+}
+
+.markdown-body .border {
+  border: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .border-0 {
+  border: 0!important;
+}
+
+.markdown-body .border-bottom {
+  border-bottom: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .rounded-1 {
+  border-radius: 3px!important;
+}
+
+.markdown-body .bg-white {
+  background-color: #fff!important;
+}
+
+.markdown-body .bg-gray-light {
+  background-color: #fafbfc!important;
+}
+
+.markdown-body .text-gray-light {
+  color: #6a737d!important;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-top: 8px!important;
+  margin-bottom: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-top: 8px!important;
+  padding-bottom: 8px!important;
+}
+
+.markdown-body .pl-3,
+.markdown-body .px-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .px-3 {
+  padding-right: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .f6 {
+  font-size: 12px!important;
+}
+
+.markdown-body .lh-condensed {
+  line-height: 1.25!important;
+}
+
+.markdown-body .text-bold {
+  font-weight: 600!important;
+}
+
+.markdown-body .pl-c {
+  color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #6f42c1;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #24292e;
+}
+
+.markdown-body .pl-ent {
+  color: #22863a;
+}
+
+.markdown-body .pl-k {
+  color: #d73a49;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #032f62;
+}
+
+.markdown-body .pl-smw,
+.markdown-body .pl-v {
+  color: #e36209;
+}
+
+.markdown-body .pl-bu {
+  color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+  color: #fafbfc;
+  background-color: #b31d28;
+}
+
+.markdown-body .pl-c2 {
+  color: #fafbfc;
+  background-color: #d73a49;
+}
+
+.markdown-body .pl-c2:before {
+  content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+  font-weight: 700;
+  color: #22863a;
+}
+
+.markdown-body .pl-ml {
+  color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  font-weight: 700;
+  color: #005cc5;
+}
+
+.markdown-body .pl-mi {
+  font-style: italic;
+  color: #24292e;
+}
+
+.markdown-body .pl-mb {
+  font-weight: 700;
+  color: #24292e;
+}
+
+.markdown-body .pl-md {
+  color: #b31d28;
+  background-color: #ffeef0;
+}
+
+.markdown-body .pl-mi1 {
+  color: #22863a;
+  background-color: #f0fff4;
+}
+
+.markdown-body .pl-mc {
+  color: #e36209;
+  background-color: #ffebda;
+}
+
+.markdown-body .pl-mi2 {
+  color: #f6f8fa;
+  background-color: #005cc5;
+}
+
+.markdown-body .pl-mdr {
+  font-weight: 700;
+  color: #6f42c1;
+}
+
+.markdown-body .pl-ba {
+  color: #586069;
+}
+
+.markdown-body .pl-sg {
+  color: #959da5;
+}
+
+.markdown-body .pl-corl {
+  text-decoration: underline;
+  color: #032f62;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-bottom: 8px!important;
+}
+
+.markdown-body .my-2 {
+  margin-top: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-top: 8px!important;
+  padding-bottom: 8px!important;
+}
+
+.markdown-body .pl-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .pl-7 {
+  padding-left: 48px!important;
+}
+
+.markdown-body .pl-8 {
+  padding-left: 64px!important;
+}
+
+.markdown-body .pl-9 {
+  padding-left: 80px!important;
+}
+
+.markdown-body .pl-10 {
+  padding-left: 96px!important;
+}
+
+.markdown-body .pl-11 {
+  padding-left: 112px!important;
+}
+
+.markdown-body .pl-12 {
+  padding-left: 128px!important;
+}
+
+.markdown-body hr {
+  border-bottom-color: #eee;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #e1e4e8;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: .25em solid #dfe2e5;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+}
+
+.markdown-body h6 {
+  font-size: .85em;
+  color: #6a737d;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: initial;
+  background-color: #fff;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+}
+
+.markdown-body .commit-tease-sha {
+  display: inline-block;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 90%;
+  color: #444d56;
+}
+
+.markdown-body .full-commit .btn-outline:not(:disabled):hover {
+  color: #005cc5;
+  border-color: #005cc5;
+}
+
+.markdown-body .blob-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.markdown-body .blob-wrapper-embedded {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.markdown-body .blob-num {
+  width: 1%;
+  min-width: 50px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+  line-height: 20px;
+  color: rgba(27,31,35,.3);
+  text-align: right;
+  white-space: nowrap;
+  vertical-align: top;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .blob-num:hover {
+  color: rgba(27,31,35,.6);
+}
+
+.markdown-body .blob-num:before {
+  content: attr(data-line-number);
+}
+
+.markdown-body .blob-code {
+  position: relative;
+  padding-right: 10px;
+  padding-left: 10px;
+  line-height: 20px;
+  vertical-align: top;
+}
+
+.markdown-body .blob-code-inner {
+  overflow: visible;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+  color: #24292e;
+  word-wrap: normal;
+  white-space: pre;
+}
+
+.markdown-body .pl-token.active,
+.markdown-body .pl-token:hover {
+  cursor: pointer;
+  background: #ffea7f;
+}
+
+.markdown-body .tab-size[data-tab-size="1"] {
+  -moz-tab-size: 1;
+  tab-size: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="2"] {
+  -moz-tab-size: 2;
+  tab-size: 2;
+}
+
+.markdown-body .tab-size[data-tab-size="3"] {
+  -moz-tab-size: 3;
+  tab-size: 3;
+}
+
+.markdown-body .tab-size[data-tab-size="4"] {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+.markdown-body .tab-size[data-tab-size="5"] {
+  -moz-tab-size: 5;
+  tab-size: 5;
+}
+
+.markdown-body .tab-size[data-tab-size="6"] {
+  -moz-tab-size: 6;
+  tab-size: 6;
+}
+
+.markdown-body .tab-size[data-tab-size="7"] {
+  -moz-tab-size: 7;
+  tab-size: 7;
+}
+
+.markdown-body .tab-size[data-tab-size="8"] {
+  -moz-tab-size: 8;
+  tab-size: 8;
+}
+
+.markdown-body .tab-size[data-tab-size="9"] {
+  -moz-tab-size: 9;
+  tab-size: 9;
+}
+
+.markdown-body .tab-size[data-tab-size="10"] {
+  -moz-tab-size: 10;
+  tab-size: 10;
+}
+
+.markdown-body .tab-size[data-tab-size="11"] {
+  -moz-tab-size: 11;
+  tab-size: 11;
+}
+
+.markdown-body .tab-size[data-tab-size="12"] {
+  -moz-tab-size: 12;
+  tab-size: 12;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+
+/* md2html specific */
+.markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 45px;
+}
+code {
+  white-space: pre-wrap !important;
+  }
+</style></head><body class="markdown-body">
+<h1>Liste di distribuzione</h1>
+<h2>Descrizione</h2>
+<p>Lo scopo della prova è progettare e implementare una gerarchia di oggetti utili a
+gestire un <em>sistema di gestione</em> di elenchi di <em>indirizzi email</em>.</p>
+<p>Per portare a termine il lavoro dovrà decidere se e quali interfacce e classi
+(concrete o astratte) implementare. Per ciascuna di esse <strong>dovrà descrivere</strong>
+(preferibilmente in formato Javadoc, ma comunque solo attraverso commenti
+presenti nel codice) le scelte relative alla <strong>rappresentazione</strong> dello stato
+(con particolare riferimento all'<em>invariante di rappresentazione</em> e alla
+<em>funzione di astrazione</em>) e ai <strong>metodi</strong> (con particolare riferimento a
+<em>pre/post-condizioni</em> ed <em>effetti collaterali</em>, soffermandosi a illustrare le
+ragioni della <em>correttezza</em> solo per le implementazioni che riterrà più
+critiche). Osservi che l'esito di questa prova si baserà tanto su questa
+documentazione quanto sul codice sorgente.</p>
+<p>Presti particolare attenzione agli <em>errori di compilazione: l'intero contenuto
+dei file che il compilatore si rifiuta di compilare non sarà affatto esaminato</em>.
+Se riscontrasse errori di compilazione che non è in grado di correggere, valuti
+la possibilità di racchiudere le porzioni di codice che li causano all'interno
+di commenti; resta inteso che tale codice commentato non sarà valutato, ma
+almeno verrà esaminato il resto del codice del file.</p>
+<h3>Indirizzi e alias</h3>
+<p>Un <strong>indirizzo</strong> email è una stringa costituita da una parte <em>locale</em> e da un
+<em>dominio</em> separati dal carattere <code>@</code>; la parte <strong>locale</strong> deve soddisfare
+l'espressione regolare Java <code>^[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*$</code> mentre il
+<strong>dominio</strong> quella <code>^[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$</code> (si
+veda la sezione sui dettagli implementativi per un suggerimento su come
+controllare tale condizione). Un esempio di indirizzo è
+<code>massimo.santini@unimi.it</code> dove <code>massimo.santini</code> è la parte locale e <code>unimi.it</code>
+è il dominio. Due indirizzi sono <em>uguali</em> se e solo se sono rispettivamente
+uguali (come stringhe) le loro parti locali e il loro dominio. </p>
+<p>Dato che spesso è necessario indirizzare un messaggio a più destinatari di uno
+stesso dominio è comodo avere degli <em>alias</em>. Un <strong>alias</strong> è un elenco di parti
+locali di indirizzo email a cui è associato un <em>nome</em> (dato da una stringa
+qualunque, purché non vuota) e un <em>dominio</em>. In molti programmi di gestione
+dell'email è possibile usare un alias al posto di un elenco di indirizzi. Ad
+esempio, se è definito l'alias di nome <code>studenti</code> con dominio
+<code>studenti.unimi.it</code> contenente gli indirizzi locali <code>mario.rossi</code>, <code>carla.bruni</code>
+e <code>giuseppe.verdi</code>, facendo uso dell'alias <code>studenti</code> è possibile indirizzare un
+messaggio agli indirizzi <code>mario.rossi@studenti.unimi.it</code>,
+<code>carla.bruni@studenti.unimi.it</code> e <code>giuseppe.verdi@studenti.unimi.it</code>. Due alias
+sono <em>uguali</em> se e solo se i loro nomi sono uguali (come stringhe). È
+ragionevole aspettarsi che sia possibile <em>aggiungere</em> e <em>rimuovere</em> le parti
+locali di indirizzo a un alias, così come sia possibile sapere se un alias ne
+<em>contiene</em> uno dato, oppure se contiene un indirizzo dato (cosa possibile
+se e solo se il dominio dell'indirizzo coincide con quello dell'alias). Infine,
+è necessario che un alias sia in grado di <em>elencare</em> (con un iteratore) i suoi
+indirizzi (comprensivi di dominio).</p>
+<h3>Liste di distribuzione</h3>
+<p>Può capitare che sia necessario raggiungere con una email indirizzi in domini
+diversi. A tale scopo è possibile definire delle <strong>liste di distribuzione</strong> di
+indirizzi email (a cui, come nel caso degli alias, è associato un <em>nome</em>) che
+possono essere costruite a partire da un <em>alias</em>, oppure facendo la <em>somma</em> o la
+<em>differenza</em> (insiemistica) di due liste di distribuzione. Più precisamente, se
+<code>L</code> e <code>M</code> sono due liste di distribuzione, la <strong>somma</strong> di <code>L</code> e <code>M</code> contiene
+tutti e soli gli indirizzi che sono in <code>L</code> più quelli che sono in <code>M</code>, mentre la
+<strong>differenza</strong> contiene tutti e soli gli indirizzi che sono in <code>L</code> ma non sono
+in <code>M</code>. Due liste di distribuzione sono <em>uguali</em> se e solo se sono uguali (come
+stringhe) i loro nomi. È necessario che una lista di distribuzione sia in grado
+di <em>elencare</em> (con un iteratore) i suoi indirizzi (comprensivi di dominio e
+senza ripetizioni); si osservi che, sebbene le liste di distribuzione siano
+immutabili, non lo sono gli alias a partire dai quali vengono costruite, ragion
+per cui l'elenco di indirizzi di una lista non può essere precalcolato alla sua
+creazione.</p>
+<h3>Gli alias estesi</h3>
+<p><em>L'implementazione dell'entità descritta in questa sezione è del tutto
+facoltativa.</em></p>
+<p>Un <strong>alias esteso</strong> è un alias che, oltre all'elenco di parti locali di
+indirizzo può contenere un elenco di alias (normali, o estesi); si osservi che
+siccome a sua volta un alias esteso può contenerne altri, questa definizione
+darà luogo a una sorta di albero <em>n</em>-ario di elenchi di indirizzi. Oltre alle
+competenze di un normale alias, quello esteso dev'essere in grado di
+<em>aggiungere</em> e <em>rimuovere</em> un alias dal suo elenco. Attenzione particolare deve
+essere invece posta alla nozione di contenimento (che diventa di fatto
+ricorsiva): un alias esteso <em>contiene un indirizzo</em> se e solo se esso è compreso
+nell'elenco delle parti locali o è contenuto in uno degli alias del suo elenco;
+similmente esso <em>contiene un alias</em> se e solo se è compreso nell'elenco dei suoi
+alias, o è contenuto in uno di essi. Infine, un alias esteso deve <em>elencare</em>
+(con un iteratore) tutti gli indirizzi (comprensivi di dominio e senza
+ripetizioni) che contiene direttamente o indirettamente (contenuti cioè in uno
+degli alias del suo elenco).</p>
+<h4>La classe di test</h4>
+<p>A partire dalle entità descritte sopra, dovrà implementare la gerarchia
+necessaria a poter eseguire una classe di test che, leggendo dal flusso di
+ingresso una sequenza di comandi, li attui istanziando le necessarie entità ed
+esercitandone i metodi.</p>
+<p>Ogni linea del flusso di ingresso rappresenta un comando che può essere di
+<em>creazione</em>, <em>mutazione</em> o <em>ispezione</em>. </p>
+<p>I comandi di creazione contengono il segno <code>=</code> e servono a creare un alias (nel
+qual caso, a sinistra del segno <code>=</code> compare il segno <code>@</code>), oppure una lista.
+Sono esempi di comandi di creazione:</p>
+<pre><code>primo@dominio.baz = locale0, locale1, locale2
+secondo@dominio.baz = locale2, @primo, locale3
+terza = primo
+quarta = secondo
+somma = terza + quarta
+differenza = quarta - terza
+</code></pre>
+<p>Per attuare il primo comando è necessario creare l'alias di nome <code>primo</code> con
+dominio <code>dominio.baz</code> e contenente le parti locali <code>locale0</code>, <code>locale1</code> e <code>locale2</code>.
+Per il secondo (che va considerato solo nel caso in cui siano stati implementati
+gli alias estesi) andrà creato l'alias esteso di nome <code>secondo</code> con dominio
+<code>dominio.baz</code> e contenente le parti locali <code>locale2</code> e <code>locale3</code> e l'alias <code>primo</code>.
+Per le restanti quattro righe, dovranno essere create delle liste di
+distribuzione, due di nome <code>terza</code> e <code>quarta</code> (costruite rispettivamente a
+partire dagli alias <code>primo</code> e <code>secondo</code>) e quindi una lista di nome <code>somma</code>
+ottenuta facendo la somma delle due liste precedenti e per finire una di nome
+<code>differenza</code> ottenuta facendo la differenza delle due liste <code>quarta</code> e <code>terza</code>.</p>
+<p>I comandi di mutazione alterano il contenuto di un alias; ad esempio</p>
+<pre><code>primo -= locale1
+secondo += locale4
+secondo -= @primo
+</code></pre>
+<p>Per attuare il primo comando va rimosso l'indirizzo <code>locale1</code> dall'alias di nome
+<code>primo</code>; i restanti comandi operano sull'alias di nome <code>secondo</code>, per attuarli è
+sufficiente aggiungere rispettivamente l'indirizzo <code>locale4</code> e rimuovere l'alias
+di nome <code>primo</code>.</p>
+<p>I comandi di ispezione sono costituiti da un nome di alias, o lista (potete
+assumere che nei comandi di creazione ogni nome venga usato una sola volta) e la
+loro attuazione corrisponde ad emettere nel flusso d'uscita il risultato
+dell'iterazione sui loro indirizzi (prefissata dal tipo e nome dell'elenco). Ad
+esempio, qualora i comandi</p>
+<pre><code>primo
+secondo
+somma
+differenza
+</code></pre>
+<p>seguano immediatamente quelli di creazione dati in precedenza, la classe deve
+emettere</p>
+<pre><code>Alias primo =
+  locale2@dominio.baz
+  locale1@dominio.baz
+  locale0@dominio.baz
+Alias secondo =
+  locale3@dominio.baz
+  locale2@dominio.baz
+  locale1@dominio.baz
+  locale0@dominio.baz
+List somma =
+  locale2@dominio.baz
+  locale1@dominio.baz
+  locale0@dominio.baz
+  locale3@dominio.baz
+List differenza =
+  locale3@dominio.baz
+</code></pre>
+<p>se eseguiti nuovamente dopo i comandi di mutazione, devono invece produrre</p>
+<pre><code>Alias primo =
+  locale2@dominio.baz
+  locale0@dominio.baz
+Alias secondo =
+  locale4@dominio.baz
+  locale3@dominio.baz
+  locale2@dominio.baz
+List somma =
+  locale2@dominio.baz
+  locale0@dominio.baz
+  locale4@dominio.baz
+  locale3@dominio.baz
+List differenza =
+  locale4@dominio.baz
+  locale3@dominio.baz
+</code></pre>
+<h2>Suggerimenti implementativi</h2>
+<p>In questa sezione sono contenuti dei suggerimenti implementativi che potrebbero
+risultare utili al fine di velocizzare lo svolgimento della prova.</p>
+<h3>Indirizzi e loro parti</h3>
+<p>Non è sensato rappresentare gli indirizzi e le loro parti con semplici stringhe
+perché è necessario che (ovunque utilizzati) essi soddisfino i vincoli dati
+dalle espressioni regolari indicate; questo richiede l'uso di opportune <em>classi
+immutabili</em>, o <em>record</em>.</p>
+<p>Per verificare che la stringa a cui si riferisce la variabile <code>part</code> soddisfi il
+vincolo espresso dall'espressione regolare data dalla stringa a cui si riferisce
+la variabile <code>er</code> è possibile costruire una volta per tutte un oggetto della
+classe <code>java.util.function.Predicate</code> tramite il metodo di fabbricazione
+<code>compile</code> della classe <code>java.util.regex.Pattern</code> come segue:</p>
+<pre><code>final static Predicate&lt;String&gt; VALIDO = Pattern.compile(er).asPredicate();
+</code></pre>
+<p>Una volta ottenuto il predicato, è possibile sapere se è soddisfatto (al variare
+della stringa da verificare) invocando il metodo <code>test</code> come</p>
+<pre><code>VALIDO.test(part)
+</code></pre>
+<p>che restituisce <code>true</code> se e solo se la stringa a cui si riferisce <code>part</code>
+soddisfa l'espressione regolare definita dalla stringa a cui si riferisce <code>er</code>.</p>
+<h3>Gli iteratori</h3>
+<p>Sia gli alias che le liste di distribuzione devono offrire un iteratore che
+consenta di elencare <em>senza ripetizioni</em> gli indirizzi che contengono. </p>
+<p>Nel caso degli alias estesi e delle liste di distribuzione ottenute per somma la
+richiesta che non vengano prodotti duplicati è particolarmente impegnativa da
+implementare.</p>
+<p>Dato che un punto cruciale dell'astrazione iterazione è quello di consentire un
+accesso al contenuto di una collezione di elementi omogenei in modo efficiente
+sia dal punto di vista del tempo che dello spazio, si precisa che <strong>non</strong>
+saranno ritenute accettabili le implementazioni banalmente derivate dall'uso di
+un <code>Set</code> preventivamente allocato e riempito con tutti gli indirizzi dell'alias,
+o lista di distribuzione. Codice del genere del seguente</p>
+<pre><code>public Iterator&lt;Indirizzo&gt; iterator() {
+  final Set&lt;Indirizzo&gt; indirizzi;
+  for (final Indirizzo indirizzo: …) indirizzi.add(indirizzo);
+  return indirizzi.iterator();
+}
+</code></pre>
+<p>dove la parte <code>…</code> è tale da elencare tutti gli indirizzi contenuti negli alias
+contenuti nell'alias esteso, o nella lista somma, non saranno ritenuti una
+soluzione accettabile e daranno anzi luogo ad una penalizzazione della
+valutazione.</p>
+<p>Piuttosto è preferibile ignorare la richiesta che l'iteratore non produca
+duplicati, implementandone una versione che quantomeno non richieda
+l'allocazione aggiuntiva di una quantità non costante di memoria.</p>
+</body>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</html>
