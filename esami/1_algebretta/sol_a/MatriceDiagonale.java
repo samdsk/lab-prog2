@@ -1,6 +1,4 @@
 import java.util.Objects;
-import java.util.jar.Manifest;
-
 public class MatriceDiagonale extends ABSMatrice {
 
     final private int[] matrice;
@@ -14,7 +12,7 @@ public class MatriceDiagonale extends ABSMatrice {
     }
 
     private boolean repOk() {
-        return matrice.length>0;
+        return matrice.length>0 && matrice != null;
     }
 
     @Override
@@ -80,7 +78,7 @@ public class MatriceDiagonale extends ABSMatrice {
 
             return new MatriceDiagonale(res);
         }
-        
+
         return new MatriceDensa(this).piu(m);
     }
     

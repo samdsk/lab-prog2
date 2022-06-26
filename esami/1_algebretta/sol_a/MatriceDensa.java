@@ -7,7 +7,7 @@ public class MatriceDensa extends ABSMatrice{
      * 
      * AF = 
      * 
-     * RI = matrice.length > 0
+     * RI = matrice.length > 0 && matrice != null
      *  && perogni i compreso tra 0 e matrice.length-1 -> matrice[i].length == matrice.length
      */
     final private int[][] matrice;

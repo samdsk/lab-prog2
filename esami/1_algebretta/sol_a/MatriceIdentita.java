@@ -6,7 +6,7 @@ public class MatriceIdentita extends ABSMatrice{
      * 
      * AF = 
      * 
-     * RI = matrice.lenth>0 
+     * RI = matrice.lenth>0  && matrice != null
      *  && perogni i compreso tra 0 e matrice.length-1 -> matrice[i].length == matrice.length
      */
 
@@ -23,8 +23,8 @@ public class MatriceIdentita extends ABSMatrice{
         assert repOk();
     }
 
-    private boolean repOk() {
-        if(matrice.length<=0) return false;
+    private boolean repOk() {        
+        if(matrice.length<=0 || matrice == null) return false;
         for(int i = 0;i<matrice.length;i++)
             if(matrice[i].length != matrice.length) return false;
         return true;
@@ -38,7 +38,6 @@ public class MatriceIdentita extends ABSMatrice{
     @Override
     public int val(int i, int j) throws IndexOutOfBoundsException {
         if(checkIndex(i, j)) return matrice[i][j];
-
         throw new IndexOutOfBoundsException("Indici non sono validi");
     }
 
