@@ -1,4 +1,8 @@
 public abstract class ABSMatrice implements Matrice {
+    /**
+     * Overview: Classe astratta che implementa parzialmente l'interfaccia Matrice, 
+     * aggiunge dei metodi utili che permette di verificare la correttazza
+     */
 
     /**
      * Restituisce true se gli indici i e j sono entrambi validi
@@ -22,7 +26,7 @@ public abstract class ABSMatrice implements Matrice {
         return true;
     }
 
-        /**
+    /**
      * Restituisce true se questa matrice e vettore v hanno la stessa dimensione
      * @param v il vettore con cui confrontare
      * @return true se hanno la stessa dimensione altrimenti false
@@ -30,5 +34,23 @@ public abstract class ABSMatrice implements Matrice {
     protected boolean checkDim(Vettore v){
         if(this.dim() != v.dim()) return false;
         return true;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder output = new StringBuilder();
+
+        output.append("[");
+
+        for(int i=0;i<dim();i++){
+            for(int j=0;j<dim();j++){
+                if(j<dim()-1)
+                    output.append(val(i,j)+", ");
+                else
+                    output.append(val(i,j)+"; ");
+            }
+        }
+        output.append("]");
+        return output.toString();
     }
 }

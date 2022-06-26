@@ -1,47 +1,28 @@
 import java.util.Objects;
 
-public class MatriceDensa extends ABSMatrice{
+public class MatriceIdentita extends ABSMatrice{
     /**
-     * Overview: MatriceDensa è una classe concreta che 
-     * implementa Matrice di dimensione n quadratica
+     * Overview: Class MatriceIdentita è una classe concreta implenta una matrice identità
      * 
      * AF = 
      * 
-     * RI = matrice.length > 0
+     * RI = matrice.lenth>0 
      *  && perogni i compreso tra 0 e matrice.length-1 -> matrice[i].length == matrice.length
      */
+
     final private int[][] matrice;
 
-    /**
-     * Inizializza questa matrice con il dato array bidimensionale m
-     * @param m un array bidimensionale
-     * @throws IllegalArgumentException se array m è vuota oppure se non è un array bidimensionale quadratica
-     * @throws NullPointerException se array m è null
-     */
-    public MatriceDensa(final int[][] m) throws IllegalArgumentException{
-        Objects.requireNonNull(m,"Array bidimensionale non può essere null!");
-        if(!(m.length>0)) throw new IllegalArgumentException("Array deve avere almeno un elemento!");
+    public MatriceIdentita(final int n) throws IllegalArgumentException{
+        if(n<=0) throw new IllegalArgumentException("Dimensione della matrice non può essere minore o uguale a zero");
 
-        for(int i = 0;i<m.length;i++)
-            if(m[i].length != m.length) throw new IllegalArgumentException("Array deve essere quadratica!");
+        matrice = new int[n][n];
 
-        matrice = m.clone();
-
+        for(int i = 0;i<dim();i++)
+            matrice[i][i] = 1;
+        
         assert repOk();
     }
-    
-    public MatriceDensa(Matrice m){
-        Objects.requireNonNull(m,"Matrice m non può essere null!");
 
-        matrice = new int[m.dim()][m.dim()];
-
-        for(int i = 0; i<dim();i++) 
-            for(int j = 0;j<dim();j++) 
-               matrice[i][j] = m.val(i, j);
-
-        assert repOk();
-
-    }
     private boolean repOk() {
         if(matrice.length<=0) return false;
         for(int i = 0;i<matrice.length;i++)
@@ -51,30 +32,26 @@ public class MatriceDensa extends ABSMatrice{
 
     @Override
     public int dim() {
-        return this.matrice.length;
+        return matrice.length;
     }
 
     @Override
-    public int val(int i, int j){
+    public int val(int i, int j) throws IndexOutOfBoundsException {
+        if(checkIndex(i, j)) return matrice[i][j];
 
-        if(checkIndex(i, j)){
-            return matrice[i][j];
-        }
-
-       throw new IndexOutOfBoundsException("Indici non sono validi!");
+        throw new IndexOutOfBoundsException("Indici non sono validi");
     }
 
     @Override
     public Matrice per(int alpha) {
-        if(alpha==0) return new MatriceNulla(dim());
+        if(alpha==0) return new MatriceNulla(this.dim());
 
-        int[][] m = new int[dim()][dim()];
+        int[][] res = new int[dim()][dim()];
 
-        for(int i = 0; i<dim();i++) 
-            for(int j = 0;j<dim();j++) 
-                m[i][j] = matrice[i][j] * alpha;
-        
-        return new MatriceDensa(m);
+        for(int i = 0; i<dim();i++)
+            res[i][i] = matrice[i][i] * alpha;
+    
+        return new MatriceDensa(res);
     }
 
     @Override
@@ -90,7 +67,6 @@ public class MatriceDensa extends ABSMatrice{
                     res[i][j] += this.matrice[i][r] * m.val(r,j);
         
         return new MatriceDensa(res);
-
     }
 
     @Override
@@ -123,5 +99,4 @@ public class MatriceDensa extends ABSMatrice{
 
     }
     
-
 }
