@@ -1,6 +1,7 @@
 public interface BoolVect{
     /**
-     * L'interfaccia BoolVect rappresenta il contratto di un vettore di valori booleani immutabile
+     * L'interfaccia BoolVect rappresenta il contratto di un vettore 
+     * di valori booleani
      */
 
 
@@ -11,20 +12,20 @@ public interface BoolVect{
     int dim();
 
     /**
-     * Restituisce la taglia cioè la dimensione massima che questo BoolVect può assumere
+     * Restituisce la taglia cioè la dimensione massima che questo 
+     * BoolVect può assumere
      * @return la taglia
      */
     int taglia();
 
     /**
-     * Restituisce un nuovo BoolVect nel quale è stato modificato 
-     * valore booleano nella posizione "pos" di questo BoolVect
+     * Modifica questo BoolVect nella posizione "pos" 
+     * aggiungendo valore booleano b
      * @param b valore booleano
-     * @param pos posizione 
-     * @return il nuovo BoolVect
+     * @param pos posizione    
      * @throws IndexOutOfBoundsException se posizione non valida
      */
-    BoolVect scrivi(final boolean b, final int pos) throws IndexOutOfBoundsException;
+    void scrivi(final boolean b, final int pos) throws IndexOutOfBoundsException;
 
     /**
      * Restituisce il valore booleano nella posizione pos di questo BoolVect
@@ -35,29 +36,29 @@ public interface BoolVect{
     boolean leggi(final int pos) throws IndexOutOfBoundsException;
 
     /**
-     * Restituisce un nuovo BoolVect eseguendo op. binaria AND tra questo BoolVect e BoolVect B
+     * Modifica questo BoolVect eseguendo op. binaria AND tra questo BoolVect 
+     * e BoolVect B
      * @param B il BoolVect
-     * @return il nuovo BoolVect
      * @throws NullPointerException se BoolVect B è null
      * @throws IllegalArgumentException se BoolVect hanno taglie diverse
      */
-    BoolVect and(final BoolVect B) throws NullPointerException, IllegalArgumentException;
+    void and(final BoolVect B) throws NullPointerException, IllegalArgumentException;
 
     /**
-     * Restituisce un nuovo BoolVect eseguendo op. binaria OR tra questo BoolVect e BoolVect B
+     * Modifica questo BoolVect eseguendo op. binaria OR tra questo BoolVect 
+     * e BoolVect B
      * @param B il BoolVect
-     * @return il nuovo BoolVect
      * @throws NullPointerException se BoolVect B è null
      * @throws IllegalArgumentException se BoolVect hanno taglie diverse
      */
-    BoolVect or(final BoolVect B) throws NullPointerException, IllegalArgumentException;
+    void or(final BoolVect B) throws NullPointerException, IllegalArgumentException;
 
     /**
-     * Restituisce un nuovo BoolVect eseguendo op. binaria XOR tra questo BoolVect e BoolVect B
+     * Modifica questo BoolVect eseguendo op. binaria XOR tra questo BoolVect 
+     * e BoolVect B
      * @param B il BoolVect
-     * @return il nuovo BoolVect
      * @throws NullPointerException se BoolVect B è null
      * @throws IllegalArgumentException se BoolVect hanno taglie diverse
      */
-    BoolVect xor(final BoolVect B) throws NullPointerException, IllegalArgumentException;
+    void xor(final BoolVect B) throws NullPointerException, IllegalArgumentException;
 }

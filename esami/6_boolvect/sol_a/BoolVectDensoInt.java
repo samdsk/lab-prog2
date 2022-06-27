@@ -2,7 +2,7 @@ import java.util.Objects;
 
 public class BoolVectDensoInt implements BoolVect {
     /**
-     * Overview: BoolVectDeso è una classe concreta 
+     * Overview: BoolVectDeso è una classe concreta mutabile
      * che rappresenta un vettore a valori booleani denso
      * implementando l'interfaccia BoolVect
      * 
@@ -16,7 +16,7 @@ public class BoolVectDensoInt implements BoolVect {
      */
 
     final private boolean[] vettore;
-    final private int pos_first_true;
+    private int pos_first_true;
     final private int taglia = 10000;
 
 
@@ -85,12 +85,11 @@ public class BoolVectDensoInt implements BoolVect {
     }
 
     @Override
-    public BoolVect scrivi(boolean b, int pos) throws IndexOutOfBoundsException {
+    public void scrivi(boolean b, int pos) throws IndexOutOfBoundsException {
         isItValid(pos);
-        boolean[] temp = vettore.clone();
-        temp[pos] = b;
-        
-        return new BoolVectDensoInt(temp);
+        vettore[pos] = b;
+        pos_first_true = findPos();
+        assert repOk();
     }
 
     @Override
@@ -105,34 +104,38 @@ public class BoolVectDensoInt implements BoolVect {
     }
 
     @Override
-    public BoolVect and(BoolVect B) throws NullPointerException, IllegalArgumentException {
+    public void and(BoolVect B) throws NullPointerException, IllegalArgumentException {
         Objects.requireNonNull(B,"BoolVect B non può essere null!");
-        if(this.taglia != B.taglia()) throw new IllegalArgumentException("as");
-        boolean[] res = new boolean[vettore.length];
 
-        for(int i = 0;i<vettore.length;i++) res[i] = vettore[i] && B.leggi(i);
+        if(this.taglia < B.taglia()) throw new IllegalArgumentException("BoolVect ha una taglia maggiore di questo BoolVect");        
 
-        return new BoolVectDensoInt(res);
+        for(int i = 0;i<vettore.length;i++) vettore[i] = vettore[i] && B.leggi(i);
+        pos_first_true = findPos();
+        assert repOk();
     }
 
     @Override
-    public BoolVect or(BoolVect B) throws NullPointerException, IllegalArgumentException {
+    public void or(BoolVect B) throws NullPointerException, IllegalArgumentException {
         Objects.requireNonNull(B,"BoolVect B non può essere null!");
-        boolean[] res = new boolean[vettore.length];
+        
 
-        for(int i = 0;i<vettore.length;i++) res[i] = vettore[i] || B.leggi(i);
+        if(this.taglia < B.taglia()) throw new IllegalArgumentException("BoolVect ha una taglia maggiore di questo BoolVect");        
 
-        return new BoolVectDensoInt(res);
+        for(int i = 0;i<vettore.length;i++) vettore[i] = vettore[i] || B.leggi(i);
+        pos_first_true = findPos();
+        assert repOk();
     }
 
     @Override
-    public BoolVect xor(BoolVect B) throws NullPointerException, IllegalArgumentException {
+    public void xor(BoolVect B) throws NullPointerException, IllegalArgumentException {
         Objects.requireNonNull(B,"BoolVect B non può essere null!");
-        boolean[] res = new boolean[vettore.length];
+        
 
-        for(int i = 0;i<vettore.length;i++) res[i] = vettore[i] ^ B.leggi(i);
+        if(this.taglia < B.taglia()) throw new IllegalArgumentException("BoolVect ha una taglia maggiore di questo BoolVect");        
 
-        return new BoolVectDensoInt(res);
+        for(int i = 0;i<vettore.length;i++) vettore[i] = vettore[i] ^ B.leggi(i);
+        pos_first_true = findPos();
+        assert repOk();
     }
 
     @Override

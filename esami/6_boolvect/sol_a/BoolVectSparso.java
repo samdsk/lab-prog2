@@ -1,64 +1,104 @@
 import java.util.Objects;
-import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class BoolVectSparso implements BoolVect {
     /**
-     * Overview: BoolVestSparso è una classe concreta immutabile 
+     * Overview: BoolVestSparso è una classe concreta mutabile 
      * che implementa un BoolVect come un vettore di valori booleani sparso
      * 
      * per questo esercizio utilizzo come taglia 10000
+     * 
+     * 
+     * AF = un vettore di valori booleani dove ogni valore è rappresentato da V se True F se False 
+     * 
+     * RI = vettore != null && vettore non abbia duplicati
      */
 
 
-    final private Set<Boolean> vettore;
+    final private SortedSet<Integer> vettore;
     final private int taglia = 10000;
 
-    public BoolVectSparso(final boolean[] b) throws NullPointerException{
-        Objects.requireNonNull(b,"Array b non può essere null!");
-
+    public BoolVectSparso(){
+        vettore = new TreeSet<>();
+        assert repOk();
         
+    }
+
+    private boolean repOk() {
+        return vettore != null;
     }
 
     @Override
     public int dim() {
-        // TODO Auto-generated method stub
-        return 0;
+        if(vettore.isEmpty()) return 0;
+        return ((int) vettore.last()) +1;
     }
 
     @Override
     public int taglia() {
-        // TODO Auto-generated method stub
-        return 0;
+        return taglia;
     }
 
     @Override
-    public BoolVect scrivi(boolean b, int pos) throws IndexOutOfBoundsException {
-        // TODO Auto-generated method stub
-        return null;
+    public void scrivi(boolean b, int pos) throws IndexOutOfBoundsException {
+        if(pos<0 || pos >= taglia) throw new IndexOutOfBoundsException("Posizione non valida");
+        vettore.add(pos);
+        assert repOk();
     }
 
     @Override
     public boolean leggi(int pos) throws IndexOutOfBoundsException {
-        // TODO Auto-generated method stub
+        if(pos<0 || pos >= taglia) throw new IndexOutOfBoundsException("Posizione non valida");
+        if(vettore.contains(pos)) return true;
         return false;
     }
 
     @Override
-    public BoolVect and(BoolVect B) throws NullPointerException, IllegalArgumentException {
-        // TODO Auto-generated method stub
-        return null;
+    public void and(BoolVect B) throws NullPointerException, IllegalArgumentException {
+        Objects.requireNonNull(B,"BoolVect B non può essere null!");
+
+        int min_dim = this.dim() < B.dim() ? this.dim() : B.dim();
+
+        for (int i = 0; i < min_dim; i++) {
+            if(!(vettore.contains(i) && B.leggi(i))) vettore.remove(i);
+        }
+        assert repOk();
     }
 
     @Override
-    public BoolVect or(BoolVect B) throws NullPointerException, IllegalArgumentException {
-        // TODO Auto-generated method stub
-        return null;
+    public void or(BoolVect B) throws NullPointerException, IllegalArgumentException {
+        Objects.requireNonNull(B,"BoolVect B non può essere null!");
+        
+        int max_dim = this.dim() < B.dim() ? B.dim() : this.dim();
+
+        for (int i = 0; i < max_dim; i++) {
+            if(B.leggi(i)) vettore.add(i);
+        }
+        assert repOk();
     }
 
     @Override
-    public BoolVect xor(BoolVect B) throws NullPointerException, IllegalArgumentException {
-        // TODO Auto-generated method stub
-        return null;
+    public void xor(BoolVect B) throws NullPointerException, IllegalArgumentException {
+
+        int max_dim = this.dim() < B.dim() ? B.dim() : this.dim();
+
+        for (int i = 0; i < max_dim; i++) {
+            if((vettore.contains(i) && !B.leggi(i)) || (!vettore.contains(i) && B.leggi(i))) vettore.add(i);
+            if((!vettore.contains(i) && !B.leggi(i)) || (vettore.contains(i) && B.leggi(i))) vettore.remove(i);
+        }
+        assert repOk();
+    }
+
+    @Override
+    public String toString(){
+
+        StringBuilder str = new StringBuilder();
+        for (int i = dim()-1; i>=0; i--) {
+            str.append(vettore.contains(i) ? "V" : "F");
+        }
+
+        return str.toString();
     }
     
 }
