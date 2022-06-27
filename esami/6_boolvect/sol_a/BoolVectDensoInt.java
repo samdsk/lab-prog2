@@ -11,8 +11,8 @@ public class BoolVectDensoInt implements BoolVect {
      * AF = un vettore di valori booleani dove ogni valore è rappresentato da V se True F se False
      * 
      * RI = vettore != null 
-     *      && vettore.length <= 10000
-     *      && pos_last_true >= 0
+     *      && vettore.length == 10000
+     *      && pos_last_true >= -1
      */
 
     final private boolean[] vettore;
@@ -29,8 +29,12 @@ public class BoolVectDensoInt implements BoolVect {
     public BoolVectDensoInt(final boolean[] arr)throws NullPointerException, IllegalArgumentException{
         Objects.requireNonNull(arr,"Array arr non può essere null!");
         if(arr.length > taglia) throw new IllegalArgumentException("Array arr supera la taglia massima!");
-
-        vettore = arr.clone();
+        
+        vettore = new boolean[taglia];
+        
+        for (int i = arr.length-1; i>= 0; i--) {
+            vettore[i] = arr[i];
+        }
         pos_first_true = findPos();
         
         assert repOk();
@@ -39,44 +43,31 @@ public class BoolVectDensoInt implements BoolVect {
     /**
      * Requires: _
      * Modifies: _
-     * Effects: Restituisce la posizione del valore booleano che sta piu a sinistra
+     * Effects: Restituisce la posizione del valore booleano che ha valore maggiore
      */
     private int findPos(){
-        for(int i = 0; i<vettore.length; i++){
+        for(int i = vettore.length; i>=0; i--){
             if(vettore[i]){ 
                 return i;
             }
         }
 
-        return 0;
+        return -1;
     }
 
     //RI
     private boolean repOk() {
        if(  vettore != null &&
-            vettore.length <= taglia &&
+            vettore.length == taglia &&
             pos_first_true >= 0
        ) return true;
 
        return false;
     }
 
-    /**
-     * Restituisce true se la poszione fornita è una posizione valida
-     * @param pos la posizione
-     * @return true se posizione è valida false altrimenti
-     * @throws IndexOutOFBoundsException se posizione non valida
-     */
-    private void isItValid(final int pos){
-        if(pos < 0 || pos >= taglia() || pos >= vettore.length) 
-            throw new IndexOutOfBoundsException("Posizione non valida!");
-
-        return;
-    }
-
     @Override
-    public int dim() {
-       return vettore.length - pos_first_true - 1;
+    public int dim() {        
+        return pos_first_true + 1;
     }
 
     @Override
@@ -86,7 +77,9 @@ public class BoolVectDensoInt implements BoolVect {
 
     @Override
     public void scrivi(boolean b, int pos) throws IndexOutOfBoundsException {
-        isItValid(pos);
+        if(pos < 0 || pos >= taglia()) 
+            throw new IndexOutOfBoundsException("Posizione non valida!");
+
         vettore[pos] = b;
         pos_first_true = findPos();
         assert repOk();
@@ -104,12 +97,13 @@ public class BoolVectDensoInt implements BoolVect {
     }
 
     @Override
-    public void and(BoolVect B) throws NullPointerException, IllegalArgumentException {
+    public void and(BoolVect B) throws NullPointerException{
         Objects.requireNonNull(B,"BoolVect B non può essere null!");
+        //non ce bisogno di controllare perchè valori piu grandi saranno tutti false
+        //if(this.taglia < B.taglia()) throw new IllegalArgumentException("BoolVect ha una taglia maggiore di questo BoolVect");        
+        int max = this.dim() < B.dim() ? B.dim() : this.dim();
 
-        if(this.taglia < B.taglia()) throw new IllegalArgumentException("BoolVect ha una taglia maggiore di questo BoolVect");        
-
-        for(int i = 0;i<vettore.length;i++) vettore[i] = vettore[i] && B.leggi(i);
+        for(int i = 0;i<max;i++) vettore[i] = vettore[i] & B.leggi(i);
         pos_first_true = findPos();
         assert repOk();
     }
@@ -117,11 +111,13 @@ public class BoolVectDensoInt implements BoolVect {
     @Override
     public void or(BoolVect B) throws NullPointerException, IllegalArgumentException {
         Objects.requireNonNull(B,"BoolVect B non può essere null!");
-        
 
         if(this.taglia < B.taglia()) throw new IllegalArgumentException("BoolVect ha una taglia maggiore di questo BoolVect");        
-
-        for(int i = 0;i<vettore.length;i++) vettore[i] = vettore[i] || B.leggi(i);
+        
+        int max = this.dim() < B.dim() ? B.dim() : this.dim();
+        
+        for(int i = 0;i<max;i++) vettore[i] = vettore[i] | B.leggi(i);
+        
         pos_first_true = findPos();
         assert repOk();
     }
@@ -129,19 +125,22 @@ public class BoolVectDensoInt implements BoolVect {
     @Override
     public void xor(BoolVect B) throws NullPointerException, IllegalArgumentException {
         Objects.requireNonNull(B,"BoolVect B non può essere null!");
-        
 
         if(this.taglia < B.taglia()) throw new IllegalArgumentException("BoolVect ha una taglia maggiore di questo BoolVect");        
 
-        for(int i = 0;i<vettore.length;i++) vettore[i] = vettore[i] ^ B.leggi(i);
+        int max = this.dim() < B.dim() ? B.dim() : this.dim();
+        
+        for(int i = 0;i<max;i++) vettore[i] = vettore[i] ^ B.leggi(i);
+
         pos_first_true = findPos();
+
         assert repOk();
     }
 
     @Override
     public String toString(){
         StringBuilder str = new StringBuilder();
-        for(int i = pos_first_true;i<vettore.length;i++){
+        for(int i = pos_first_true;i>=0;i--){
             str.append(vettore[i] ? "V" : "F");
         }
 

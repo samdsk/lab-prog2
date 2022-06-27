@@ -10,9 +10,10 @@ public class BoolVectSparso implements BoolVect {
      * per questo esercizio utilizzo come taglia 10000
      * 
      * 
-     * AF = un vettore di valori booleani dove ogni valore è rappresentato da V se True F se False 
+     * AF = x_n,...,x_i,x_0 dove i è compreso tra 0 e dim()-1, un vettore di 
+     *  valori booleani dove ogni X_i è rappresentato da V se i appartiene al vettore
      * 
-     * RI = vettore != null && vettore non abbia duplicati
+     * RI = vettore != null && vettore non deve avere duplicati && ogni valore del vettore deve essere minore di taglia
      */
 
 
@@ -26,7 +27,7 @@ public class BoolVectSparso implements BoolVect {
     }
 
     private boolean repOk() {
-        return vettore != null;
+        return vettore != null && vettore.last()< taglia;
     }
 
     @Override

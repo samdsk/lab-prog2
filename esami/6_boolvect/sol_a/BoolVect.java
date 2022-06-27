@@ -40,9 +40,8 @@ public interface BoolVect{
      * e BoolVect B
      * @param B il BoolVect
      * @throws NullPointerException se BoolVect B è null
-     * @throws IllegalArgumentException se BoolVect hanno taglie diverse
      */
-    void and(final BoolVect B) throws NullPointerException, IllegalArgumentException;
+    void and(final BoolVect B) throws NullPointerException;
 
     /**
      * Modifica questo BoolVect eseguendo op. binaria OR tra questo BoolVect 
