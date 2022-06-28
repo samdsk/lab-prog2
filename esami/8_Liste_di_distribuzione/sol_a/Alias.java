@@ -22,12 +22,11 @@ public class Alias implements Iterable<Indirizzo> {
      *      && nome != null
      *      && nome.length > 0
      *      && dominio != null
-     *      && elenco non abbiano duplicati
-     *      && tutti gli elementi dell'elenco devono avere dominio == this.dominio
+     *      && elenco non abbiano duplicati     
      * 
      */
 
-    final private Set<Indirizzo> elenco;
+    final private Set<Locale> elenco;
     final private String nome;
     final private Dominio dominio;
 
@@ -58,13 +57,8 @@ public class Alias implements Iterable<Indirizzo> {
             && nome != null
             && nome.length()>0
             && dominio != null
-        ){
-            for (Indirizzo i : elenco) {
-                if(!i.dominio().equals(this.dominio)) return false;
-            }
-
-            return true;
-        }
+        ) return true;
+        
 
         return false;
     }
@@ -87,7 +81,7 @@ public class Alias implements Iterable<Indirizzo> {
     }
 
     /**
-     * Aggiunge un nuovo indirizzo email a questo alias 
+     * Aggiunge un nuovo indirizzo email (parte locale) a questo alias 
      * e restituisce true se è stato aggiungto all'alias altrimenti false
      * @param i l'indirizzo email
      * @return true se stato aggiungo a questo alias false altrimenti
@@ -98,7 +92,7 @@ public class Alias implements Iterable<Indirizzo> {
         Objects.requireNonNull(i,"L'indirizzo non può essere null!");
         if(!i.dominio().equals(this.dominio)) throw new IllegalArgumentException("Dominio dell'indirizzo fornito non combacia con il dominio dell'alias");
         
-        if(!elenco.contains(i)) elenco.add(i);
+        if(!elenco.contains(i.locale())) elenco.add(i.locale());
         else return false;
 
         assert repOk();
@@ -116,7 +110,7 @@ public class Alias implements Iterable<Indirizzo> {
         Objects.requireNonNull(i,"L'indirizzo non può essere null!");
         if(!i.dominio().equals(this.dominio)) throw new IllegalArgumentException("Dominio dell'indirizzo fornito non combacia con il dominio dell'alias");
         
-        if(elenco.contains(i)) elenco.remove(i);
+        if(elenco.contains(i.locale())) elenco.remove(i.locale());
         else return false;
 
         assert repOk();
@@ -129,15 +123,18 @@ public class Alias implements Iterable<Indirizzo> {
      * @return true se stato trovato nell'alias false altrimenti
      * @throws NullPointerException se l'indirizzo è null
      */
-    public boolean contains(Indirizzo i) throws NullPointerException{
-        Objects.requireNonNull(i,"L'indirizzo non può essere null!");
-        return elenco.contains(i);
+    public boolean contains(Locale l) throws NullPointerException{
+        Objects.requireNonNull(l,"L'indirizzo non può essere null!");
+        return elenco.contains(l);
     }
 
     @Override
     public Iterator<Indirizzo> iterator() {
 
-        final List<Indirizzo> list = new ArrayList<>(elenco);
+        final List<Indirizzo> list = new ArrayList<>();
+
+        for(Locale l : elenco)
+            list.add(new Indirizzo(l, dominio));
 
         Collections.sort(list,
             new Comparator<Indirizzo>() {
@@ -149,7 +146,7 @@ public class Alias implements Iterable<Indirizzo> {
             }
         );
 
-        return Collections.unmodifiableList(list).iterator();
+        return list.iterator();
     }
 
     @Override
@@ -161,8 +158,8 @@ public class Alias implements Iterable<Indirizzo> {
         if(!this.dominio.equals(that.getDomain()) || !this.nome.equals(that.getName()))
             return false;
 
-        for(Indirizzo i : elenco)
-            if(!that.contains(i)) return false;
+        for(Locale l : elenco)
+            if(!that.contains(l)) return false;
 
         return true;
     }
@@ -173,8 +170,8 @@ public class Alias implements Iterable<Indirizzo> {
         
         str.append("Alias "+nome+" =\n");
 
-        for(Indirizzo i : elenco)
-            str.append("\t"+i.toString());
+        for(Locale l : elenco)
+            str.append("\t"+l.toString()+"@"+dominio.toString());
         str.append("\n");
 
         return toString();
