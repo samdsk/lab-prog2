@@ -71,8 +71,8 @@ public class Alias implements Iterable<Indirizzo> {
 
 
     /**
-     * Restituisce il nome questo alias
-     * @return
+     * Restituisce il nome di questo alias
+     * @return nome
      */
     public String getName(){
         return nome;
@@ -80,7 +80,7 @@ public class Alias implements Iterable<Indirizzo> {
 
     /**
      * Restituisce il dominio di questo alias
-     * @return
+     * @return dominio
      */
     public Dominio getDomain(){
         return dominio;
@@ -138,7 +138,7 @@ public class Alias implements Iterable<Indirizzo> {
     public Iterator<Indirizzo> iterator() {
 
         final List<Indirizzo> list = new ArrayList<>(elenco);
-        
+
         Collections.sort(list,
             new Comparator<Indirizzo>() {
 
@@ -149,20 +149,35 @@ public class Alias implements Iterable<Indirizzo> {
             }
         );
 
-        Iterator<Indirizzo> it = Collections.unmodifiableList(list).iterator();
+        return Collections.unmodifiableList(list).iterator();
+    }
 
-        return new Iterator<Indirizzo>() {
-            @Override
-            public boolean hasNext() {
-                return it.hasNext();
-            }
+    @Override
+    public boolean equals(Object obj){
+        if(!(obj instanceof Alias)) return false;
 
-            @Override
-            public Indirizzo next() {
-                return it.next();
-            }
-            
-        };
+        Alias that = (Alias) obj;
+
+        if(!this.dominio.equals(that.getDomain()) || !this.nome.equals(that.getName()))
+            return false;
+
+        for(Indirizzo i : elenco)
+            if(!that.contains(i)) return false;
+
+        return true;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder str = new StringBuilder();
+        
+        str.append("Alias "+nome+" =\n");
+
+        for(Indirizzo i : elenco)
+            str.append("\t"+i.toString());
+        str.append("\n");
+
+        return toString();
     }
 
 }
