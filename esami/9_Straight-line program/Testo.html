@@ -1,0 +1,1206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Testo</title>
+<style>
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #1b1f23;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1:hover .anchor .octicon-link:before,
+.markdown-body h2:hover .anchor .octicon-link:before,
+.markdown-body h3:hover .anchor .octicon-link:before,
+.markdown-body h4:hover .anchor .octicon-link:before,
+.markdown-body h5:hover .anchor .octicon-link:before,
+.markdown-body h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'%3E%3C/path%3E%3C/svg%3E");
+}.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #24292e;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfe2e5;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body :checked+.radio-label {
+  position: relative;
+  z-index: 1;
+  border-color: #0366d6;
+}
+
+.markdown-body .border {
+  border: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .border-0 {
+  border: 0!important;
+}
+
+.markdown-body .border-bottom {
+  border-bottom: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .rounded-1 {
+  border-radius: 3px!important;
+}
+
+.markdown-body .bg-white {
+  background-color: #fff!important;
+}
+
+.markdown-body .bg-gray-light {
+  background-color: #fafbfc!important;
+}
+
+.markdown-body .text-gray-light {
+  color: #6a737d!important;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-top: 8px!important;
+  margin-bottom: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-top: 8px!important;
+  padding-bottom: 8px!important;
+}
+
+.markdown-body .pl-3,
+.markdown-body .px-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .px-3 {
+  padding-right: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .f6 {
+  font-size: 12px!important;
+}
+
+.markdown-body .lh-condensed {
+  line-height: 1.25!important;
+}
+
+.markdown-body .text-bold {
+  font-weight: 600!important;
+}
+
+.markdown-body .pl-c {
+  color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #6f42c1;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #24292e;
+}
+
+.markdown-body .pl-ent {
+  color: #22863a;
+}
+
+.markdown-body .pl-k {
+  color: #d73a49;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #032f62;
+}
+
+.markdown-body .pl-smw,
+.markdown-body .pl-v {
+  color: #e36209;
+}
+
+.markdown-body .pl-bu {
+  color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+  color: #fafbfc;
+  background-color: #b31d28;
+}
+
+.markdown-body .pl-c2 {
+  color: #fafbfc;
+  background-color: #d73a49;
+}
+
+.markdown-body .pl-c2:before {
+  content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+  font-weight: 700;
+  color: #22863a;
+}
+
+.markdown-body .pl-ml {
+  color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  font-weight: 700;
+  color: #005cc5;
+}
+
+.markdown-body .pl-mi {
+  font-style: italic;
+  color: #24292e;
+}
+
+.markdown-body .pl-mb {
+  font-weight: 700;
+  color: #24292e;
+}
+
+.markdown-body .pl-md {
+  color: #b31d28;
+  background-color: #ffeef0;
+}
+
+.markdown-body .pl-mi1 {
+  color: #22863a;
+  background-color: #f0fff4;
+}
+
+.markdown-body .pl-mc {
+  color: #e36209;
+  background-color: #ffebda;
+}
+
+.markdown-body .pl-mi2 {
+  color: #f6f8fa;
+  background-color: #005cc5;
+}
+
+.markdown-body .pl-mdr {
+  font-weight: 700;
+  color: #6f42c1;
+}
+
+.markdown-body .pl-ba {
+  color: #586069;
+}
+
+.markdown-body .pl-sg {
+  color: #959da5;
+}
+
+.markdown-body .pl-corl {
+  text-decoration: underline;
+  color: #032f62;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-bottom: 8px!important;
+}
+
+.markdown-body .my-2 {
+  margin-top: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-top: 8px!important;
+  padding-bottom: 8px!important;
+}
+
+.markdown-body .pl-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .pl-7 {
+  padding-left: 48px!important;
+}
+
+.markdown-body .pl-8 {
+  padding-left: 64px!important;
+}
+
+.markdown-body .pl-9 {
+  padding-left: 80px!important;
+}
+
+.markdown-body .pl-10 {
+  padding-left: 96px!important;
+}
+
+.markdown-body .pl-11 {
+  padding-left: 112px!important;
+}
+
+.markdown-body .pl-12 {
+  padding-left: 128px!important;
+}
+
+.markdown-body hr {
+  border-bottom-color: #eee;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #e1e4e8;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: .25em solid #dfe2e5;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+}
+
+.markdown-body h6 {
+  font-size: .85em;
+  color: #6a737d;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: initial;
+  background-color: #fff;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+}
+
+.markdown-body .commit-tease-sha {
+  display: inline-block;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 90%;
+  color: #444d56;
+}
+
+.markdown-body .full-commit .btn-outline:not(:disabled):hover {
+  color: #005cc5;
+  border-color: #005cc5;
+}
+
+.markdown-body .blob-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.markdown-body .blob-wrapper-embedded {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.markdown-body .blob-num {
+  width: 1%;
+  min-width: 50px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+  line-height: 20px;
+  color: rgba(27,31,35,.3);
+  text-align: right;
+  white-space: nowrap;
+  vertical-align: top;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .blob-num:hover {
+  color: rgba(27,31,35,.6);
+}
+
+.markdown-body .blob-num:before {
+  content: attr(data-line-number);
+}
+
+.markdown-body .blob-code {
+  position: relative;
+  padding-right: 10px;
+  padding-left: 10px;
+  line-height: 20px;
+  vertical-align: top;
+}
+
+.markdown-body .blob-code-inner {
+  overflow: visible;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+  color: #24292e;
+  word-wrap: normal;
+  white-space: pre;
+}
+
+.markdown-body .pl-token.active,
+.markdown-body .pl-token:hover {
+  cursor: pointer;
+  background: #ffea7f;
+}
+
+.markdown-body .tab-size[data-tab-size="1"] {
+  -moz-tab-size: 1;
+  tab-size: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="2"] {
+  -moz-tab-size: 2;
+  tab-size: 2;
+}
+
+.markdown-body .tab-size[data-tab-size="3"] {
+  -moz-tab-size: 3;
+  tab-size: 3;
+}
+
+.markdown-body .tab-size[data-tab-size="4"] {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+.markdown-body .tab-size[data-tab-size="5"] {
+  -moz-tab-size: 5;
+  tab-size: 5;
+}
+
+.markdown-body .tab-size[data-tab-size="6"] {
+  -moz-tab-size: 6;
+  tab-size: 6;
+}
+
+.markdown-body .tab-size[data-tab-size="7"] {
+  -moz-tab-size: 7;
+  tab-size: 7;
+}
+
+.markdown-body .tab-size[data-tab-size="8"] {
+  -moz-tab-size: 8;
+  tab-size: 8;
+}
+
+.markdown-body .tab-size[data-tab-size="9"] {
+  -moz-tab-size: 9;
+  tab-size: 9;
+}
+
+.markdown-body .tab-size[data-tab-size="10"] {
+  -moz-tab-size: 10;
+  tab-size: 10;
+}
+
+.markdown-body .tab-size[data-tab-size="11"] {
+  -moz-tab-size: 11;
+  tab-size: 11;
+}
+
+.markdown-body .tab-size[data-tab-size="12"] {
+  -moz-tab-size: 12;
+  tab-size: 12;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+
+/* md2html specific */
+.markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 45px;
+}
+code {
+  white-space: pre-wrap !important;
+  }
+</style></head><body class="markdown-body">
+<h1>Straight-line program</h1>
+<h2>Descrizione</h2>
+<p>Scopo della prova è progettare e implementare una gerarchia di oggetti utili a
+implementare un <em>interprete</em> per <em>straight-line program</em> sugli interi.</p>
+<p>Per portare a termine il lavoro dovrà decidere se e quali interfacce e classi
+(concrete o astratte) implementare. Per ciascuna di esse <strong>dovrà descrivere</strong>
+(preferibilmente in formato Javadoc, ma comunque solo attraverso commenti
+presenti nel codice) le scelte relative alla <strong>rappresentazione</strong> dello stato
+(con particolare riferimento all'<em>invariante di rappresentazione</em> e alla
+<em>funzione di astrazione</em>) e ai <strong>metodi</strong> (con particolare riferimento a
+<em>pre/post-condizioni</em> ed <em>effetti collaterali</em>, soffermandosi a illustrare le
+ragioni della <em>correttezza</em> solo per le implementazioni che riterrà più
+critiche). Osservi che l'esito di questa prova si baserà tanto su questa
+documentazione quanto sul codice sorgente.</p>
+<p>Presti particolare attenzione agli <em>errori di compilazione: l'intero contenuto
+dei file che il compilatore si rifiuta di compilare non sarà affatto esaminato</em>.
+Se riscontrasse errori di compilazione che non è in grado di correggere, valuti
+la possibilità di racchiudere le porzioni di codice che li causano all'interno
+di commenti; resta inteso che tale codice commentato non sarà valutato, ma
+almeno verrà esaminato il resto del codice del file.</p>
+<h3>Lo straight-line program</h3>
+<p>Uno <em>straight-line program</em> sugli interi è una <em>sequenza di istruzioni</em>, ciascuna
+delle quali corrisponde all'assegnamento della valutazione di una <em>funzione</em>
+(intera ad argomenti interi) a una <em>variabile</em>, con l'ulteriore restrizione che
+gli argomenti della funzione siano numeri interi o variabili precedentemente
+assegnate. Uno <em>straight-line program</em> si dice <em>valido</em> rispetto a un insieme
+di funzioni se e solo se tutte le funzioni che compaiono in esso appartengono a
+tale insieme e sono valutate sul corretto numero di argomenti. Data l'ovvia
+semantica di ciascun assegnamento, il <em>valore</em> di uno <em>straight-line program</em>
+valido è il valore della variabile assegnata nell'ultima istruzione (si osservi
+che tale valore è ben definito, come si può banalmente dimostrare per induzione
+sul numero di istruzioni nel programma).</p>
+<p>Ad esempio, il seguente</p>
+<pre><code>X = 1
+Y = 5
+Z = SUM(X, Y)
+W = MUL(Y, Z)
+</code></pre>
+<p>ha valore <code>30</code> in quanto</p>
+<pre><code>W = MUL(Y, Z)
+  = MUL(Y, SUM(X, Y))
+  = MUL(5, SUM(1, 5))
+  = MUL(5, 6)
+  = 30
+</code></pre>
+<h3>Funzioni (e costanti)</h3>
+<p>Una <em>interfaccia</em> molto naturale per modellare una <strong>funzione</strong> intera ad
+argomenti interi è data da</p>
+<pre><code>public interface Funzione {
+  int numeroArgomenti();
+  void argomento(Funzione funzione, int posizione);
+  int valuta();
+}
+</code></pre>
+<ul>
+<li>il metodo <code>numeroArgomenti</code> restituisce il numero di argomenti della funzione
+  (ad esempio <code>2</code> nel caso di <code>SUM</code>),</li>
+<li>il metodo <code>argomento</code> permette di definire quale altra <code>funzione</code> corrisponda
+  all'argomento di <code>posizione</code> data,</li>
+<li>il metodo <code>valuta</code> restituisce il valore di questa funzione (una volta
+  opportunamente ottenute e combinate le valutazioni delle funzioni
+  corrispondenti ai suoi argomenti).</li>
+</ul>
+<p>Come si nota, sebbene la definizione di <em>straight-line program</em> preveda che
+alcuni argomenti possano essere numeri interi, l'interfaccia appena proposta
+sembra non coprire questo caso. Questo è facilmente risolto considerando un
+intero come una <strong>funzione costante</strong> (ossia a zero argomenti); ad esempio,
+aggiungendo il seguente metodo statico all'interfaccia proposta</p>
+<pre><code>static Funzione costante(final int valore) {
+  return new Funzione() {
+    public int numeroArgomenti() { return 0; }
+    public void argomento(Funzione funzione, int posizione) {
+      throw new UnsupportedOperationException();
+    }
+    public int valuta() { return valore; }
+  };
+}
+</code></pre>
+<p>è possibile fabbricare, dato un <code>valore</code>, una funzione costante la cui
+valutazione corrisponda a esso.</p>
+<p>Ad esempio, il valore dello straight-line program</p>
+<pre><code>A = 5
+B = 6
+X = SUM(A, B)
+</code></pre>
+<p>è <code>11</code> e può essere ottenuto grazie all'esecuzione del seguente segmento di
+codice</p>
+<pre><code>Funzione A = Funzione.costante(5);
+Funzione B = Funzione.costante(6);
+Funzione SUM = new Sum();
+SUM.argomento(A, 0);
+SUM.argomento(B, 1);
+</code></pre>
+<p>dove <code>Sum</code> è una implementazione dell'interfaccia <code>Funzione</code> che ha per valore
+la somma dei suoi argomenti.</p>
+<h3>Istruzioni e interprete</h3>
+<p>Una <strong>istruzione</strong> è concettualmente data da:</p>
+<ul>
+<li>la <em>variabile</em> a cui assegnare la valutazione della funzione,</li>
+<li>la <em>funzione</em> da valutare,</li>
+<li>l'elenco delle variabili, o numeri, che costituiscono gli <em>argomenti</em> della
+  funzione.</li>
+</ul>
+<p>Dato che sarà necessario leggere le istruzioni dal flusso di ingresso, potrebbe
+essere utile avere un modo per costruire una istruzione a partire da una stringa.
+Per semplicità assumete che tale stringa sia una sequenza di <em>nomi</em> (sequenze
+massimali di caratteri alfabetici maiuscoli che non contengono spazi) e <em>numeri</em>
+interi, separati da <em>white-space</em>, come ad esempio</p>
+<pre><code>X  SUM   Z        3
+</code></pre>
+<p>assumete, inoltre, che i primi due nomi (sempre presenti) siano quelli della
+variabile e della funzione, mentre gli altri numeri o nomi siano gli eventuali
+argomenti. Può essere comodo ricordare che il metodo <code>split</code> con argomento <code>" +"</code> applicato alla stringa dell'esempio restituisce il vettore di stringhe <code>"X",
+"SUM", "Z", "3"</code>.</p>
+<p>Un <strong>interprete</strong> per <em>straight-line program</em> deve essere in grado, dato un
+programma valido rispetto all'insieme di funzioni ad esso note, di calcolarne il
+valore.</p>
+<p>Più precisamente, una volta inizializzato con una sequenza di istruzioni (ed
+eventualmente una descrizione dell'insieme di funzioni implementate), esso deve
+offrire un metodo di segnatura</p>
+<pre><code>int valuta(int[] ingresso)
+</code></pre>
+<p>che, se <code>ingresso</code> contiene al più 26 interi (che chiameremmo nel seguito <code>i0</code>,
+..., <code>i25</code>), restituisca il valore del programma ottenuto anteponendo</p>
+<pre><code>A = i0
+B = i1
+C = i3
+...
+Z = i25
+</code></pre>
+<p>alle istruzioni con cui è stato inizializzato, posto che il programma così
+ottenuto sia valido (evidentemente, il numero di variabili definite come sopra
+sarà pari al numero di valori in <code>ingresso</code>).</p>
+<p>Per rendere un po' più "interessante" il comportamento dell'interprete,
+implementate almeno le seguenti <em>funzioni</em> (nel senso di classi che implementino
+l'interfaccia <code>Funzione</code>):</p>
+<ul>
+<li><code>Mul</code>: funzione a due argomenti che ne restituisce il prodotto,</li>
+<li><code>Max</code>: funzione a tre argomenti che ne restituisce il massimo,</li>
+<li><code>Neg</code>: funzione a un argomento che lo restituisce col segno opposto.</li>
+</ul>
+<p>Date tale implementazioni, una volta inizializzato l'interprete, ad esempio con
+le istruzioni</p>
+<pre><code>X = SUM(A, B)
+Y = SUM(C, D)
+Z = MUL(X, Y)
+</code></pre>
+<p>la chiamata di <code>valuta(new int[] {1, 2, 3, 4})</code> deve restituire <code>21</code> che è pari
+al valore del programma</p>
+<pre><code>A = 1
+B = 2
+C = 3
+D = 4
+X = SUM(A, B)
+Y = SUM(C, D)
+Z = MUL(X, Y)
+</code></pre>
+<h3>La classe di test</h3>
+<p>Scrivete una classe che abbia un metodo statico <code>main</code>  che legga dal flusso di
+ingresso una sequenza di istruzioni (nel formato descritto in precedenza) e
+riceva (al più 26) interi come parametri sulla linea di comando ed emetta nel
+flusso d'uscita il valore ottenuto dall'interprete su tali interi, secondo
+quanto discusso in precedenza.</p>
+<h2>Vincoli</h2>
+<p>Le istruzioni in ingresso rispettano tutte il formato specificato e
+costituiscono un programma valido (una volta prefissato dagli assegnamenti alle
+variabili da <code>A</code> fino al più a <code>Z</code> coi valori ottenuti dai parametri sulla linea
+di comando) e rispetto all'insieme di funzioni elencate in precedenza; il nome
+delle funzioni nelle stringhe coincide con quello delle classi (a meno del
+<em>case</em>).</p>
+<h2>Esempio</h2>
+<p>Eseguendo <code>soluzione 1 2 3 4</code> e avendo</p>
+<pre><code>X SUM A B
+Y SUM C D
+Z MUL X Y
+</code></pre>
+<p>nel flusso di ingresso, il programma emette <code>21</code> nel flusso d'uscita.</p>
+<p>Eseguendo <code>soluzione 6 9 8 7</code> ed avendo</p>
+<pre><code>X NEG A
+Y NEG B
+W NEG C
+Z NEG D
+MXYW MAX X Y W
+M MAX MXYW Z Z
+R NEG M
+</code></pre>
+<p>nel flusso di ingresso, il programma emette il <code>6</code> (il minimo degli argomenti)
+nel flusso d'uscita.</p>
+<h2>Osservazioni</h2>
+<p>Considerate che un approccio alternativo (per certi versi più complesso, ma
+certamente più efficiente qualora siano richieste più valutazioni dello stesso
+programma al variare delle variabili in ingresso) è realizzare un
+<strong>compilatore</strong> che, dato uno <em>straight-line program</em>, restituisca una
+(implementazione di) <code>Funzione</code> che abbia tanti argomenti quante le variabili
+libere in <code>A</code>, <code>B</code>, … <code>Z</code> del programma, la cui valutazione coincida in valore
+con la valutazione descritta per l'interprete.</p>
+</body>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</html>

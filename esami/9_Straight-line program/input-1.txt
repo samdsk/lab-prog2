@@ -1,0 +1,3 @@
+X SUM A B
+Y SUM C D
+Z MUL X Y
