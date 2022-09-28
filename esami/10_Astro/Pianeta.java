@@ -15,7 +15,7 @@ public class Pianeta extends AbsCorpoCeleste{
     @Override
     public void aggiornaVelocita(CorpoCeleste c){
         Objects.requireNonNull(c);
-        System.out.println("aggiorna velocita:\n\t"+this+"\n\t"+c);
+        //System.out.println("aggiorna velocita:\n\t"+this+"\n\t"+c);
 
         if(posizione.getX() != c.posizione().getX()){
             if(posizione.getX() > c.posizione().getX()) velocita.updateX(-1);
@@ -32,16 +32,16 @@ public class Pianeta extends AbsCorpoCeleste{
             else velocita.updateZ(1);
         }
 
-        System.out.println("- aggiornato velocita:"+this);
+        //System.out.println("- aggiornato velocita:"+this);
         
     }
     @Override
     public void aggiornaPosizione(){
-        System.out.println("aggiorna posizione:"+this);
+        //System.out.println("aggiorna posizione:"+this);
         posizione.updateX(velocita.getX());
         posizione.updateY(velocita.getY());
         posizione.updateZ(velocita.getZ());
-        System.out.println("- aggiornato posizione:"+this);
+        //System.out.println("- aggiornato posizione:"+this);
     }
 
     @Override

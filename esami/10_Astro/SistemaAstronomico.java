@@ -53,7 +53,7 @@ public class SistemaAstronomico {
             sum_ec += c.energiaCinetica(); 
             sum += c.energia();
         }
-        System.out.println("EP: "+sum_ep+" EC: "+sum_ec+" ET: "+sum+" ET*: "+(sum_ep*sum_ec));
+        //System.out.println("EP: "+sum_ep+" EC: "+sum_ec+" ET: "+sum+" ET*: "+(sum_ep*sum_ec));
         energia = (long) sum;
 
         assert repOk();
