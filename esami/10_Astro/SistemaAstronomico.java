@@ -45,16 +45,16 @@ public class SistemaAstronomico {
 
     private void energiaTotale(){
 
-        double sum_ep = 0;
-        double sum_ec = 0;
-        double sum = 0;
+        //double sum_ep = 0;
+        //double sum_ec = 0;
+        long sum = 0;
         for(CorpoCeleste c : corpi){
-            sum_ep += c.energiaPotenziale();
-            sum_ec += c.energiaCinetica(); 
+            //sum_ep += c.energiaPotenziale();
+            //sum_ec += c.energiaCinetica(); 
             sum += c.energia();
         }
         //System.out.println("EP: "+sum_ep+" EC: "+sum_ec+" ET: "+sum+" ET*: "+(sum_ep*sum_ec));
-        energia = (long) sum;
+        energia = sum;
 
         assert repOk();
     }
