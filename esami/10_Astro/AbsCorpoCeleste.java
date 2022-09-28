@@ -1,4 +1,6 @@
 public abstract class AbsCorpoCeleste implements CorpoCeleste{
+    //Overview: questa classe è una classe astratta che implementa parzialmente un CorpoCeleste
+    
     protected String nome;
     protected Punto posizione;
     protected Punto velocita;

@@ -1,7 +1,13 @@
 import java.util.Objects;
 
-public class Pianeta extends AbsCorpoCeleste{    
-
+public class Pianeta extends AbsCorpoCeleste{
+    /**
+     * Overview: le istanze di qeusta classe sono mutabili e rappresenta un corpo celeste di tipo pianta
+     * 
+     * AF(nome,posizione,velocita) = Pianeta: nome, pos: posizione, vel: velocita
+     * 
+     * RI = nome != null && nome.length()>0 && posizione != null && velocita != null
+     */
     public Pianeta(String nome, Punto p){
         if(!(Objects.requireNonNull(nome).length()>0))
             throw new IllegalArgumentException("il nome del pianeta non può essere vuota!");
