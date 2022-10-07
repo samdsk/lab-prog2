@@ -1,63 +1,77 @@
-public interface BoolVect{
-    /**
-     * L'interfaccia BoolVect rappresenta il contratto di un vettore 
-     * di valori booleani
-     */
 
+/**
+ *  Overview:   Questa interfaccia va a definire i comportamenti che devono avere le classi che la implementano.
+ *              Un Boolvect, o vettore di valori booleani, è una sequenza di valori di verità, ciascuno delle quali deve essere
+ *              T/F. Come tale, ogni implementazione di BoolVect deve essere in grado di leggere e scrivere in una i-esima posizione, cosiccome
+ *              svolgere un'operazione &&, || e ^ con un'altra Boolvect
+ */
 
+/**
+ * Si noti che le operazioni booleane (eg. &&, ||, ^) possono essere svolte anche su due boolvect di grandezza diversa, per 
+ * il boolvect con grandezza minore verrà assunto valore F, per ogni posizione oltre la sua taglia
+ * 
+ */
+public interface Boolvect {
+    
     /**
-     * Restiuisce la dimesione di questo BoolVect
-     * @return la dimesione
+     * Restituisce un valore di verità T/F di un Boolvect, data la posizione dell'indice
+     * @param posizione: di cui si vuole sapere il valore di verità
+     * @return  un valore T/F in base al valore di verità in posizione.
+     *          se il valore posizione è maggiore della grandezza del boolvect, per convenzione viene restituito false.
      */
-    int dim();
-
-    /**
-     * Restituisce la taglia cioè la dimensione massima che questo 
-     * BoolVect può assumere
-     * @return la taglia
-     */
-    int taglia();
-
-    /**
-     * Modifica questo BoolVect nella posizione "pos" 
-     * aggiungendo valore booleano b
-     * @param b valore booleano
-     * @param pos posizione    
-     * @throws IndexOutOfBoundsException se posizione non valida
-     */
-    void scrivi(final boolean b, final int pos) throws IndexOutOfBoundsException;
+    public Boolean leggi(int posizione);
 
     /**
-     * Restituisce il valore booleano nella posizione pos di questo BoolVect
-     * @param pos posizione
-     * @return il valore booleano
-     * @throws IndexOutOfBoundsException se posizione non valida
+     * Scrive un valore di verità T/F in una data posizione di un Boolvect.
+     * Se il valore che inseriamo è T, e la posizione è maggiore della dimensione, la dimensione deve essere aggiornata.
+     * @param posizione in cui si vuole scrivere
+     * @param b un valore booleano T/F
+     * @throws IndexOutOfBoundsException se la posizione in cui si vuole scrivere è maggiore della taglia del boolvect.
+     * 
+     * Un boolean è un tipo primitivo, non può essere null, quindi non c'è bisogno di un controllo.
      */
-    boolean leggi(final int pos) throws IndexOutOfBoundsException;
+    public void scrivi(int posizione, boolean b) throws IndexOutOfBoundsException;
+
+    public int getDimensione();
 
     /**
-     * Modifica questo BoolVect eseguendo op. binaria AND tra questo BoolVect 
-     * e BoolVect B
-     * @param B il BoolVect
-     * @throws NullPointerException se BoolVect B è null
+     * Si noti che le operazioni booleane (eg. &&, ||, ^) possono essere svolte
+     * anche su due boolvect di grandezza diversa, per il boolvect con grandezza
+     * minore verrà assunto valore F, per ogni posizione oltre la sua taglia
+     * 
      */
-    void and(final BoolVect B) throws NullPointerException;
 
     /**
-     * Modifica questo BoolVect eseguendo op. binaria OR tra questo BoolVect 
-     * e BoolVect B
-     * @param B il BoolVect
-     * @throws NullPointerException se BoolVect B è null
-     * @throws IllegalArgumentException se BoolVect hanno taglie diverse
+     * Restituisce un nuovo Boolvect ottenuta svolgendo l'operazione && tra questo
+     * boolvect ed un boolvect dato
+     * 
+     * @param b il Boolvect con cui si vuole svolgere l'operazione && posizione per
+     *          posizione
+     * @return un nuovo Boolvect
+     * @throws NullPointerException se il boolvect inserito è null
      */
-    void or(final BoolVect B) throws NullPointerException, IllegalArgumentException;
+    Boolvect and(final Boolvect b) throws NullPointerException;
 
     /**
-     * Modifica questo BoolVect eseguendo op. binaria XOR tra questo BoolVect 
-     * e BoolVect B
-     * @param B il BoolVect
-     * @throws NullPointerException se BoolVect B è null
-     * @throws IllegalArgumentException se BoolVect hanno taglie diverse
+     * Restituisce un nuovo Boolvect ottenuta svolgendo l'operazione || tra questo
+     * boolvect ed un boolvect dato
+     * 
+     * @param b il Boolvect con cui si vuole svolgere l'operazione || posizione per
+     *          posizione
+     * @return un nuovo Boolvect
+     * @throws NullPointerException se il boolvect inserito è null
      */
-    void xor(final BoolVect B) throws NullPointerException, IllegalArgumentException;
+    Boolvect or(final Boolvect b);
+
+    /**
+     * Restituisce un nuovo Boolvect ottenuta svolgendo l'operazione ^ tra questo
+     * boolvect ed un boolvect dato
+     * 
+     * @param b il Boolvect con cui si vuole svolgere l'operazione ^ posizione per
+     *          posizione
+     * @return un nuovo Boolvect
+     * @throws NullPointerException se il boolvect inserito è null
+     */
+    Boolvect xor(final Boolvect b);
+
 }
